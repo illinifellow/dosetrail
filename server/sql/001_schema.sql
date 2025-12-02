@@ -5,3 +5,4 @@ CREATE TABLE patients (
   key         text UNIQUE NOT NULL,
   sex         char(1),
   birth_year  smallint
+);

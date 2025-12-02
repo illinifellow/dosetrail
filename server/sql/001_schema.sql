@@ -2,3 +2,6 @@
 -- person across studies without holding their identifiers.
 CREATE TABLE patients (
   id          bigserial PRIMARY KEY,
+  key         text UNIQUE NOT NULL,
+  sex         char(1),
+  birth_year  smallint

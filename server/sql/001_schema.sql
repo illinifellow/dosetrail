@@ -14,3 +14,8 @@ CREATE TABLE studies (
   modality         text NOT NULL,              -- CT, XA, RF, DX, MG
   device           text,                        -- manufacturer + model + station
   protocol         text,
+  total_dlp        double precision,            -- mGy·cm, CT
+  total_dap        double precision,            -- Gy·cm², projection
+  fluoro_seconds   double precision,
+  effective_msv    double precision,
+  received_at      timestamptz NOT NULL DEFAULT now()

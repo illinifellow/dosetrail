@@ -19,3 +19,5 @@ CREATE TABLE studies (
   fluoro_seconds   double precision,
   effective_msv    double precision,
   received_at      timestamptz NOT NULL DEFAULT now()
+);
+CREATE INDEX studies_patient_time ON studies (patient_id, performed_at);

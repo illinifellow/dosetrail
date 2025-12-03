@@ -21,3 +21,4 @@ CREATE TABLE studies (
   received_at      timestamptz NOT NULL DEFAULT now()
 );
 CREATE INDEX studies_patient_time ON studies (patient_id, performed_at);
+CREATE INDEX studies_protocol ON studies (modality, protocol);

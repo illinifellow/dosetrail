@@ -6,3 +6,11 @@ CREATE TABLE patients (
   sex         char(1),
   birth_year  smallint
 );
+
+CREATE TABLE studies (
+  study_uid        text PRIMARY KEY,
+  patient_id       bigint NOT NULL REFERENCES patients ON DELETE CASCADE,
+  performed_at     timestamptz NOT NULL,
+  modality         text NOT NULL,              -- CT, XA, RF, DX, MG
+  device           text,                        -- manufacturer + model + station
+  protocol         text,

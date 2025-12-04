@@ -30,3 +30,4 @@ CREATE TABLE events (
   kind            text NOT NULL,               -- axial, helical, spiral, stationary, fluoroscopy, acquisition
   anatomy         text,
   ctdi_vol        double precision,
+  dlp             double precision,

@@ -33,3 +33,6 @@ CREATE TABLE events (
   dlp             double precision,
   scan_length_mm  double precision,
   dap             double precision,
+  kvp             double precision,
+  UNIQUE (study_uid, event_uid)
+);

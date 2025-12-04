@@ -24,3 +24,4 @@ CREATE INDEX studies_patient_time ON studies (patient_id, performed_at);
 CREATE INDEX studies_protocol ON studies (modality, protocol);
 
 CREATE TABLE events (
+  id              bigserial PRIMARY KEY,

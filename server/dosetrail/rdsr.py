@@ -1,0 +1,1 @@
+"""Reads what matters out of a Radiation Dose Structured Report.

@@ -1,0 +1,50 @@
+-- Patients are stored under a keyed hash of issuer + patient id: the registry can follow one
+-- person across studies without holding their identifiers.
+CREATE TABLE patients (
+  id          bigserial PRIMARY KEY,
+  key         text UNIQUE NOT NULL,
+  sex         char(1),
+  birth_year  smallint
+);
+
+CREATE TABLE studies (
+  study_uid        text PRIMARY KEY,
+  patient_id       bigint NOT NULL REFERENCES patients ON DELETE CASCADE,
+  performed_at     timestamptz NOT NULL,
+  modality         text NOT NULL,              -- CT, XA, RF, DX, MG
+  device           text,                        -- manufacturer + model + station
+  protocol         text,
+  total_dlp        double precision,            -- mGy·cm, CT
+  total_dap        double precision,            -- Gy·cm², projection
+  fluoro_seconds   double precision,
+  effective_msv    double precision,
+  received_at      timestamptz NOT NULL DEFAULT now()
+);
+CREATE INDEX studies_patient_time ON studies (patient_id, performed_at);
+CREATE INDEX studies_protocol ON studies (modality, protocol);
+
+CREATE TABLE events (
+  id              bigserial PRIMARY KEY,
+  study_uid       text NOT NULL REFERENCES studies ON DELETE CASCADE,
+  event_uid       text NOT NULL,
+  kind            text NOT NULL,               -- axial, helical, spiral, stationary, fluoroscopy, acquisition
+  anatomy         text,
+  ctdi_vol        double precision,
+  dlp             double precision,
+  scan_length_mm  double precision,
+  dap             double precision,
+  kvp             double precision,
+  UNIQUE (study_uid, event_uid)
+);
+
+CREATE TABLE alerts (
+  id          bigserial PRIMARY KEY,
+  study_uid   text NOT NULL REFERENCES studies ON DELETE CASCADE,
+  kind        text NOT NULL,                   -- above_drl, cumulative, repeat_scan
+  detail      text NOT NULL,
+  raised_at   timestamptz NOT NULL DEFAULT now(),
+  reviewed_by text,
+  reviewed_at timestamptz,
+  note        text
+);
+CREATE INDEX alerts_open ON alerts (raised_at) WHERE reviewed_at IS NULL;

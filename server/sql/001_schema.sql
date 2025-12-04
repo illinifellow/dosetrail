@@ -36,3 +36,5 @@ CREATE TABLE events (
   kvp             double precision,
   UNIQUE (study_uid, event_uid)
 );
+
+CREATE TABLE alerts (

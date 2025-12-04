@@ -32,3 +32,4 @@ CREATE TABLE events (
   ctdi_vol        double precision,
   dlp             double precision,
   scan_length_mm  double precision,
+  dap             double precision,

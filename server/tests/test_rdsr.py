@@ -19,3 +19,6 @@ def num(concept, value):
     mv.NumericValue = str(value)
     item.MeasuredValueSequence = Sequence([mv])
     return item
+
+
+def ct_event(uid, anatomy, ctdi, dlp):

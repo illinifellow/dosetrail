@@ -28,3 +28,5 @@ def ct_event(uid, anatomy, ctdi, dlp):
     u.ConceptNameCodeSequence = code("113769", "Irradiation Event UID")
     u.UID = uid
     region = Dataset()
+    region.ConceptNameCodeSequence = code("123014", "Target Region")
+    region.ConceptCodeSequence = code("T-D1100", anatomy, "SRT")

@@ -27,3 +27,4 @@ def ct_event(uid, anatomy, ctdi, dlp):
     u = Dataset()
     u.ConceptNameCodeSequence = code("113769", "Irradiation Event UID")
     u.UID = uid
+    region = Dataset()

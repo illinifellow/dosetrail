@@ -9,3 +9,8 @@ def code(value, meaning, scheme="DCM"):
     c = Dataset()
     c.CodeValue, c.CodingSchemeDesignator, c.CodeMeaning = value, scheme, meaning
     return Sequence([c])
+
+
+def num(concept, value):
+    item = Dataset()
+    item.ValueType = "NUM"

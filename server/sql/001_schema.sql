@@ -43,3 +43,5 @@ CREATE TABLE alerts (
   kind        text NOT NULL,                   -- above_drl, cumulative, repeat_scan
   detail      text NOT NULL,
   raised_at   timestamptz NOT NULL DEFAULT now(),
+  reviewed_by text,
+  reviewed_at timestamptz,

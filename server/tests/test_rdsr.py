@@ -30,3 +30,5 @@ def ct_event(uid, anatomy, ctdi, dlp):
     region = Dataset()
     region.ConceptNameCodeSequence = code("123014", "Target Region")
     region.ConceptCodeSequence = code("T-D1100", anatomy, "SRT")
+    ev.ContentSequence = Sequence([u, region, num(("113830", "Mean CTDIvol"), ctdi), num(("113838", "DLP"), dlp)])
+    return ev

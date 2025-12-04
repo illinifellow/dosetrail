@@ -47,3 +47,4 @@ CREATE TABLE alerts (
   reviewed_at timestamptz,
   note        text
 );
+CREATE INDEX alerts_open ON alerts (raised_at) WHERE reviewed_at IS NULL;

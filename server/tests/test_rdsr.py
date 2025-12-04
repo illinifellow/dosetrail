@@ -33,3 +33,7 @@ def ct_event(uid, anatomy, ctdi, dlp):
     ev.ContentSequence = Sequence([u, region, num(("113830", "Mean CTDIvol"), ctdi), num(("113838", "DLP"), dlp)])
     return ev
 
+
+def report(*events):
+    ds = Dataset()
+    ds.StudyInstanceUID, ds.PatientID, ds.StudyDate, ds.StudyTime = "1.2.3", "P1", "20260314", "101500"

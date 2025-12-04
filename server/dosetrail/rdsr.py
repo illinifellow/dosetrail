@@ -13,3 +13,7 @@ from pydicom import Dataset
 
 # (scheme, value) of the concepts we read
 CT_ACQUISITION = ("DCM", "113819")
+IRRADIATION_EVENT = ("DCM", "113706")
+EVENT_UID = ("DCM", "113769")
+ACQUISITION_TYPE = ("DCM", "113820")
+TARGET_REGION = ("DCM", "123014")

@@ -16,3 +16,4 @@ def num(concept, value):
     item.ValueType = "NUM"
     item.ConceptNameCodeSequence = code(*concept)
     mv = Dataset()
+    mv.NumericValue = str(value)

@@ -17,3 +17,5 @@ def num(concept, value):
     item.ConceptNameCodeSequence = code(*concept)
     mv = Dataset()
     mv.NumericValue = str(value)
+    item.MeasuredValueSequence = Sequence([mv])
+    return item

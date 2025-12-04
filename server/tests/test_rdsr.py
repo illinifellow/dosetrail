@@ -14,3 +14,4 @@ def code(value, meaning, scheme="DCM"):
 def num(concept, value):
     item = Dataset()
     item.ValueType = "NUM"
+    item.ConceptNameCodeSequence = code(*concept)

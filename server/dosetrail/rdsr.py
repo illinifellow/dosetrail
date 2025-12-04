@@ -12,3 +12,4 @@ from datetime import datetime
 from pydicom import Dataset
 
 # (scheme, value) of the concepts we read
+CT_ACQUISITION = ("DCM", "113819")

@@ -8,3 +8,5 @@ differently; the codes are what the standard fixes.
 from collections.abc import Iterator
 from dataclasses import dataclass, field
 from datetime import datetime
+
+from pydicom import Dataset

@@ -22,3 +22,7 @@ def num(concept, value):
 
 
 def ct_event(uid, anatomy, ctdi, dlp):
+    ev = Dataset()
+    ev.ConceptNameCodeSequence = code("113819", "CT Acquisition")
+    u = Dataset()
+    u.ConceptNameCodeSequence = code("113769", "Irradiation Event UID")

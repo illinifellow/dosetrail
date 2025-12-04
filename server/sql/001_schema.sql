@@ -38,3 +38,8 @@ CREATE TABLE events (
 );
 
 CREATE TABLE alerts (
+  id          bigserial PRIMARY KEY,
+  study_uid   text NOT NULL REFERENCES studies ON DELETE CASCADE,
+  kind        text NOT NULL,                   -- above_drl, cumulative, repeat_scan
+  detail      text NOT NULL,
+  raised_at   timestamptz NOT NULL DEFAULT now(),

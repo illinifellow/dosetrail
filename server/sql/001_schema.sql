@@ -25,3 +25,8 @@ CREATE INDEX studies_protocol ON studies (modality, protocol);
 
 CREATE TABLE events (
   id              bigserial PRIMARY KEY,
+  study_uid       text NOT NULL REFERENCES studies ON DELETE CASCADE,
+  event_uid       text NOT NULL,
+  kind            text NOT NULL,               -- axial, helical, spiral, stationary, fluoroscopy, acquisition
+  anatomy         text,
+  ctdi_vol        double precision,

@@ -46,3 +46,4 @@ def test_reads_ct_events_and_sums_dlp():
     assert r.modality == "CT"
     assert [e.dlp for e in r.events] == [812, 40]
     assert r.total_dlp == 852
+    assert r.effective_msv == round(852 * 0.0021, 2)

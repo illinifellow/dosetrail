@@ -33,3 +33,10 @@ K_FACTORS = {
     "abdomen and pelvis": 0.015, "chest, abdomen and pelvis": 0.015, "spine": 0.015,
 }
 
+
+@dataclass
+class Event:
+    uid: str
+    kind: str
+    anatomy: str | None = None
+    ctdi_vol: float | None = None

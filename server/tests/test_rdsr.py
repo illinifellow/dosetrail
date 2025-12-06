@@ -48,3 +48,5 @@ def test_reads_ct_events_and_sums_dlp():
     assert r.total_dlp == 852
     assert r.effective_msv == round(852 * 0.0021, 2)
 
+
+def test_unknown_anatomy_gives_no_effective_dose_rather_than_a_wrong_one():

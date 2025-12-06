@@ -1,0 +1,60 @@
+from pydicom import Dataset
+from pydicom.sequence import Sequence
+
+from dosetrail.drl import Level, check
+from dosetrail.rdsr import parse
+
+
+def code(value, meaning, scheme="DCM"):
+    c = Dataset()
+    c.CodeValue, c.CodingSchemeDesignator, c.CodeMeaning = value, scheme, meaning
+    return Sequence([c])
+
+
+def num(concept, value):
+    item = Dataset()
+    item.ValueType = "NUM"
+    item.ConceptNameCodeSequence = code(*concept)
+    mv = Dataset()
+    mv.NumericValue = str(value)
+    item.MeasuredValueSequence = Sequence([mv])
+    return item
+
+
+def ct_event(uid, anatomy, ctdi, dlp):
+    ev = Dataset()
+    ev.ConceptNameCodeSequence = code("113819", "CT Acquisition")
+    u = Dataset()
+    u.ConceptNameCodeSequence = code("113769", "Irradiation Event UID")
+    u.UID = uid
+    region = Dataset()
+    region.ConceptNameCodeSequence = code("123014", "Target Region")
+    region.ConceptCodeSequence = code("T-D1100", anatomy, "SRT")
+    ev.ContentSequence = Sequence([u, region, num(("113830", "Mean CTDIvol"), ctdi), num(("113838", "DLP"), dlp)])
+    return ev
+
+
+def report(*events):
+    ds = Dataset()
+    ds.StudyInstanceUID, ds.PatientID, ds.StudyDate, ds.StudyTime = "1.2.3", "P1", "20260314", "101500"
+    ds.ContentSequence = Sequence(list(events))
+    return ds
+
+
+def test_reads_ct_events_and_sums_dlp():
+    r = parse(report(ct_event("e1", "Head", 48.2, 812), ct_event("e2", "Head", 12.0, 40)))
+    assert r.modality == "CT"
+    assert [e.dlp for e in r.events] == [812, 40]
+    assert r.total_dlp == 852
+    assert r.effective_msv == round(852 * 0.0021, 2)
+
+
+def test_unknown_anatomy_gives_no_effective_dose_rather_than_a_wrong_one():
+    assert parse(report(ct_event("e1", "Knee", 5, 90))).effective_msv is None
+
+
+def test_alerts_above_drl_and_on_cumulative_dose():
+    r = parse(report(ct_event("e1", "Chest", 14, 420)))
+    lv = [Level("CT chest", ("chest",), ctdi_vol=10, dlp=350)]
+    kinds = [k for k, _ in check(r, lv, cumulative_msv=104, repeat_within_hours=False)]
+    assert kinds == ["above_drl", "above_drl", "cumulative"]

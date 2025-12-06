@@ -51,3 +51,6 @@ def test_reads_ct_events_and_sums_dlp():
 
 def test_unknown_anatomy_gives_no_effective_dose_rather_than_a_wrong_one():
     assert parse(report(ct_event("e1", "Knee", 5, 90))).effective_msv is None
+
+
+def test_alerts_above_drl_and_on_cumulative_dose():

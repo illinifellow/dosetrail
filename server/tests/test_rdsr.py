@@ -45,3 +45,4 @@ def test_reads_ct_events_and_sums_dlp():
     r = parse(report(ct_event("e1", "Head", 48.2, 812), ct_event("e2", "Head", 12.0, 40)))
     assert r.modality == "CT"
     assert [e.dlp for e in r.events] == [812, 40]
+    assert r.total_dlp == 852

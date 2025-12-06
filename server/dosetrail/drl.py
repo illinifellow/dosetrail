@@ -10,3 +10,6 @@ from pathlib import Path
 import yaml
 
 from .rdsr import DoseReport
+
+
+@dataclass(frozen=True)

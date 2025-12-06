@@ -3,3 +3,6 @@
 levels:
   - name: CT head
     match: [head, brain]
+    ctdi_vol: 60
+    dlp: 970
+  - name: CT chest

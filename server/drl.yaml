@@ -15,3 +15,7 @@ levels:
     dlp: 745
   - name: CT lumbar spine
     match: [lumbar, l-spine]
+    ctdi_vol: 25
+    dlp: 700
+  - name: Coronary angiography
+    match: [coronary]

@@ -55,3 +55,6 @@ def test_unknown_anatomy_gives_no_effective_dose_rather_than_a_wrong_one():
 
 def test_alerts_above_drl_and_on_cumulative_dose():
     r = parse(report(ct_event("e1", "Chest", 14, 420)))
+    lv = [Level("CT chest", ("chest",), ctdi_vol=10, dlp=350)]
+    kinds = [k for k, _ in check(r, lv, cumulative_msv=104, repeat_within_hours=False)]
+    assert kinds == ["above_drl", "above_drl", "cumulative"]

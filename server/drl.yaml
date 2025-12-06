@@ -19,3 +19,4 @@ levels:
     dlp: 700
   - name: Coronary angiography
     match: [coronary]
+    dap: 35

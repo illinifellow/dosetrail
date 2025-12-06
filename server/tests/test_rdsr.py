@@ -37,3 +37,5 @@ def ct_event(uid, anatomy, ctdi, dlp):
 def report(*events):
     ds = Dataset()
     ds.StudyInstanceUID, ds.PatientID, ds.StudyDate, ds.StudyTime = "1.2.3", "P1", "20260314", "101500"
+    ds.ContentSequence = Sequence(list(events))
+    return ds

@@ -18,3 +18,7 @@ class Level:
     match: tuple[str, ...]
     ctdi_vol: float | None = None
     dlp: float | None = None
+    dap: float | None = None
+
+
+def load(path: Path) -> list[Level]:

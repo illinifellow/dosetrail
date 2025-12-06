@@ -39,3 +39,7 @@ def report(*events):
     ds.StudyInstanceUID, ds.PatientID, ds.StudyDate, ds.StudyTime = "1.2.3", "P1", "20260314", "101500"
     ds.ContentSequence = Sequence(list(events))
     return ds
+
+
+def test_reads_ct_events_and_sums_dlp():
+    r = parse(report(ct_event("e1", "Head", 48.2, 812), ct_event("e2", "Head", 12.0, 40)))

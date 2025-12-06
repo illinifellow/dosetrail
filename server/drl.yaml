@@ -2,3 +2,4 @@
 # published levels before relying on any alert.
 levels:
   - name: CT head
+    match: [head, brain]

@@ -29,3 +29,7 @@ PROTOCOL = ("DCM", "125203")
 
 # CT DLP to effective dose, mSv per mGy·cm, adult (ICRP 102 / Shrimpton et al.)
 K_FACTORS = {
+    "head": 0.0021, "neck": 0.0059, "chest": 0.014, "abdomen": 0.015, "pelvis": 0.015,
+    "abdomen and pelvis": 0.015, "chest, abdomen and pelvis": 0.015, "spine": 0.015,
+}
+

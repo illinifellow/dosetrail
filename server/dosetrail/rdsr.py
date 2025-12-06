@@ -40,3 +40,7 @@ class Event:
     kind: str
     anatomy: str | None = None
     ctdi_vol: float | None = None
+    dlp: float | None = None
+    scan_length_mm: float | None = None
+    dap: float | None = None
+    kvp: float | None = None

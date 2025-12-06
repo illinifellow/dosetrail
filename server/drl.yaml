@@ -12,3 +12,5 @@ levels:
   - name: CT abdomen and pelvis
     match: [abdomen, pelvis]
     ctdi_vol: 15
+    dlp: 745
+  - name: CT lumbar spine

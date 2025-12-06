@@ -7,3 +7,8 @@ levels:
     dlp: 970
   - name: CT chest
     match: [chest, thorax, lung]
+    ctdi_vol: 10
+    dlp: 350
+  - name: CT abdomen and pelvis
+    match: [abdomen, pelvis]
+    ctdi_vol: 15

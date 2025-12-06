@@ -14,3 +14,4 @@ levels:
     ctdi_vol: 15
     dlp: 745
   - name: CT lumbar spine
+    match: [lumbar, l-spine]

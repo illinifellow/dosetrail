@@ -17,3 +17,4 @@ class Level:
     name: str
     match: tuple[str, ...]
     ctdi_vol: float | None = None
+    dlp: float | None = None

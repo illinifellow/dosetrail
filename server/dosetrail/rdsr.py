@@ -28,3 +28,4 @@ FLUORO_TIME_TOTAL = ("DCM", "113730")
 PROTOCOL = ("DCM", "125203")
 
 # CT DLP to effective dose, mSv per mGy·cm, adult (ICRP 102 / Shrimpton et al.)
+K_FACTORS = {

@@ -15,3 +15,5 @@ from .rdsr import DoseReport
 @dataclass(frozen=True)
 class Level:
     name: str
+    match: tuple[str, ...]
+    ctdi_vol: float | None = None

@@ -6,3 +6,4 @@ levels:
     ctdi_vol: 60
     dlp: 970
   - name: CT chest
+    match: [chest, thorax, lung]

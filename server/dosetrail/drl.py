@@ -13,3 +13,5 @@ from .rdsr import DoseReport
 
 
 @dataclass(frozen=True)
+class Level:
+    name: str

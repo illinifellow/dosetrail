@@ -54,3 +54,4 @@ def test_unknown_anatomy_gives_no_effective_dose_rather_than_a_wrong_one():
 
 
 def test_alerts_above_drl_and_on_cumulative_dose():
+    r = parse(report(ct_event("e1", "Chest", 14, 420)))

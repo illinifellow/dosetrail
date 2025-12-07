@@ -42,3 +42,5 @@ def check(report: DoseReport, levels: list[Level], cumulative_msv: float, repeat
         if lv.dlp and report.total_dlp and report.total_dlp > lv.dlp:
             alerts.append(("above_drl", f"DLP {report.total_dlp:.0f} mGy·cm above the {lv.name} DRL of {lv.dlp:.0f}"))
         worst = max((e.ctdi_vol or 0 for e in report.events), default=0)
+        if lv.ctdi_vol and worst > lv.ctdi_vol:
+            alerts.append(("above_drl", f"CTDIvol {worst:.1f} mGy above the {lv.name} DRL of {lv.ctdi_vol:.1f}"))

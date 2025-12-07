@@ -49,3 +49,5 @@ def check(report: DoseReport, levels: list[Level], cumulative_msv: float, repeat
     if cumulative_msv >= 100:
         alerts.append(("cumulative", f"cumulative effective dose {cumulative_msv:.0f} mSv over five years"))
     if repeat_within_hours:
+        alerts.append(("repeat_scan", "same protocol repeated within 24 hours"))
+    return alerts

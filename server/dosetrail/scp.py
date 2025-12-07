@@ -36,3 +36,6 @@ def handler(pool: ConnectionPool, levels: list[drl.Level], webhook: str | None):
             report = parse(ds)
         except Exception:
             log.exception("could not read dose report from %s", event.assoc.requestor.ae_title)
+            return 0xC000  # cannot understand; the sender logs it and does not retry forever
+        with pool.connection() as conn:
+            alerts = save(conn, report, levels)

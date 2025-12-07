@@ -26,3 +26,8 @@ from .store import save
 
 log = logging.getLogger("dosetrail.scp")
 DOSE_CLASSES = [XRayRadiationDoseSRStorage, EnhancedXRayRadiationDoseSRStorage, PatientRadiationDoseSRStorage]
+
+
+def handler(pool: ConnectionPool, levels: list[drl.Level], webhook: str | None):
+    def on_store(event: evt.Event) -> int:
+        ds = event.dataset

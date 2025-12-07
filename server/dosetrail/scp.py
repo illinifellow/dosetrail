@@ -46,3 +46,5 @@ def handler(pool: ConnectionPool, levels: list[drl.Level], webhook: str | None):
 
     return on_store
 
+
+def main() -> None:

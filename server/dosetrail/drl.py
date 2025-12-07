@@ -27,3 +27,4 @@ def load(path: Path) -> list[Level]:
         Level(name=d["name"], match=tuple(m.lower() for m in d["match"]), ctdi_vol=d.get("ctdi_vol"), dlp=d.get("dlp"), dap=d.get("dap"))
         for d in raw["levels"]
     ]
+

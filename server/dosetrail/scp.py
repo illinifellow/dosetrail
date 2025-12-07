@@ -64,3 +64,4 @@ def main() -> None:
         ("0.0.0.0", args.port),
         evt_handlers=[(evt.EVT_C_STORE, handler(pool, drl.load(args.drl), os.environ.get("DOSETRAIL_WEBHOOK")))],
     )
+

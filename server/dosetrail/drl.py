@@ -30,3 +30,5 @@ def load(path: Path) -> list[Level]:
 
 
 def level_for(report: DoseReport, levels: list[Level]) -> Level | None:
+    text = f"{report.protocol or ''} {' '.join(e.anatomy or '' for e in report.events)}".lower()
+    return next((lv for lv in levels if any(m in text for m in lv.match)), None)

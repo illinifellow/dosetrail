@@ -56,3 +56,8 @@ def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
 
     pool = ConnectionPool(os.environ["DATABASE_URL"], min_size=1, max_size=4)
+    ae = AE(ae_title=args.aet)
+    ae.add_supported_context(Verification)
+    for sop in DOSE_CLASSES:
+        ae.add_supported_context(sop)
+    ae.start_server(

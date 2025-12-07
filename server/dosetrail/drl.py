@@ -33,3 +33,5 @@ def level_for(report: DoseReport, levels: list[Level]) -> Level | None:
     text = f"{report.protocol or ''} {' '.join(e.anatomy or '' for e in report.events)}".lower()
     return next((lv for lv in levels if any(m in text for m in lv.match)), None)
 
+
+def check(report: DoseReport, levels: list[Level], cumulative_msv: float, repeat_within_hours: bool) -> list[tuple[str, str]]:

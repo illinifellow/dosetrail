@@ -28,3 +28,5 @@ def load(path: Path) -> list[Level]:
         for d in raw["levels"]
     ]
 
+
+def level_for(report: DoseReport, levels: list[Level]) -> Level | None:

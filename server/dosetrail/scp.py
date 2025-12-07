@@ -43,3 +43,5 @@ def handler(pool: ConnectionPool, levels: list[drl.Level], webhook: str | None):
         if alerts and webhook:
             httpx.post(webhook, json={"study": report.study_uid, "protocol": report.protocol, "alerts": alerts}, timeout=5)
         return 0x0000
+
+    return on_store

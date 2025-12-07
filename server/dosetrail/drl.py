@@ -48,3 +48,4 @@ def check(report: DoseReport, levels: list[Level], cumulative_msv: float, repeat
             alerts.append(("above_drl", f"DAP {report.total_dap:.1f} Gy·cm² above the {lv.name} DRL of {lv.dap:.1f}"))
     if cumulative_msv >= 100:
         alerts.append(("cumulative", f"cumulative effective dose {cumulative_msv:.0f} mSv over five years"))
+    if repeat_within_hours:

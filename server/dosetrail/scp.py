@@ -14,3 +14,8 @@ import httpx
 from psycopg_pool import ConnectionPool
 from pynetdicom import AE, evt
 from pynetdicom.sop_class import (
+    Verification,
+    XRayRadiationDoseSRStorage,
+    EnhancedXRayRadiationDoseSRStorage,
+    PatientRadiationDoseSRStorage,
+)

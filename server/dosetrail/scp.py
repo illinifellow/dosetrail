@@ -34,3 +34,5 @@ def handler(pool: ConnectionPool, levels: list[drl.Level], webhook: str | None):
         ds.file_meta = event.file_meta
         try:
             report = parse(ds)
+        except Exception:
+            log.exception("could not read dose report from %s", event.assoc.requestor.ae_title)

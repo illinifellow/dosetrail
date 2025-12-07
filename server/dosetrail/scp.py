@@ -61,3 +61,6 @@ def main() -> None:
     for sop in DOSE_CLASSES:
         ae.add_supported_context(sop)
     ae.start_server(
+        ("0.0.0.0", args.port),
+        evt_handlers=[(evt.EVT_C_STORE, handler(pool, drl.load(args.drl), os.environ.get("DOSETRAIL_WEBHOOK")))],
+    )

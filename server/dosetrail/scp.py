@@ -51,3 +51,6 @@ def main() -> None:
     parser = argparse.ArgumentParser(prog="dosetrail-scp")
     parser.add_argument("--aet", default=os.environ.get("DOSETRAIL_AET", "DOSETRAIL"))
     parser.add_argument("--port", type=int, default=int(os.environ.get("DOSETRAIL_PORT", 11112)))
+    parser.add_argument("--drl", type=Path, default=Path(os.environ.get("DOSETRAIL_DRL", "drl.yaml")))
+    args = parser.parse_args()
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")

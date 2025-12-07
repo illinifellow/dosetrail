@@ -1,0 +1,22 @@
+# Example values in the range of recent European national DRLs. Replace with your country's
+# published levels before relying on any alert.
+levels:
+  - name: CT head
+    match: [head, brain]
+    ctdi_vol: 60
+    dlp: 970
+  - name: CT chest
+    match: [chest, thorax, lung]
+    ctdi_vol: 10
+    dlp: 350
+  - name: CT abdomen and pelvis
+    match: [abdomen, pelvis]
+    ctdi_vol: 15
+    dlp: 745
+  - name: CT lumbar spine
+    match: [lumbar, l-spine]
+    ctdi_vol: 25
+    dlp: 700
+  - name: Coronary angiography
+    match: [coronary]
+    dap: 35

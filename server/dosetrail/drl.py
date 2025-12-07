@@ -37,3 +37,5 @@ def level_for(report: DoseReport, levels: list[Level]) -> Level | None:
 def check(report: DoseReport, levels: list[Level], cumulative_msv: float, repeat_within_hours: bool) -> list[tuple[str, str]]:
     """Returns (kind, detail) for every reason this study deserves a second look."""
     alerts: list[tuple[str, str]] = []
+    lv = level_for(report, levels)
+    if lv:

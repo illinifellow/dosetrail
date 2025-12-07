@@ -65,3 +65,6 @@ def main() -> None:
         evt_handlers=[(evt.EVT_C_STORE, handler(pool, drl.load(args.drl), os.environ.get("DOSETRAIL_WEBHOOK")))],
     )
 
+
+if __name__ == "__main__":
+    main()

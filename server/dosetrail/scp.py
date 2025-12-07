@@ -39,3 +39,6 @@ def handler(pool: ConnectionPool, levels: list[drl.Level], webhook: str | None):
             return 0xC000  # cannot understand; the sender logs it and does not retry forever
         with pool.connection() as conn:
             alerts = save(conn, report, levels)
+        log.info("%s %s %s DLP=%s alerts=%d", report.modality, report.study_uid, report.protocol, report.total_dlp, len(alerts))
+        if alerts and webhook:
+            httpx.post(webhook, json={"study": report.study_uid, "protocol": report.protocol, "alerts": alerts}, timeout=5)

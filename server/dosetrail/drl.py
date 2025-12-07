@@ -39,3 +39,4 @@ def check(report: DoseReport, levels: list[Level], cumulative_msv: float, repeat
     alerts: list[tuple[str, str]] = []
     lv = level_for(report, levels)
     if lv:
+        if lv.dlp and report.total_dlp and report.total_dlp > lv.dlp:

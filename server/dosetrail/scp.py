@@ -48,3 +48,6 @@ def handler(pool: ConnectionPool, levels: list[drl.Level], webhook: str | None):
 
 
 def main() -> None:
+    parser = argparse.ArgumentParser(prog="dosetrail-scp")
+    parser.add_argument("--aet", default=os.environ.get("DOSETRAIL_AET", "DOSETRAIL"))
+    parser.add_argument("--port", type=int, default=int(os.environ.get("DOSETRAIL_PORT", 11112)))

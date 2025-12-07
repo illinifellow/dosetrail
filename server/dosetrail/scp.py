@@ -31,3 +31,5 @@ DOSE_CLASSES = [XRayRadiationDoseSRStorage, EnhancedXRayRadiationDoseSRStorage, 
 def handler(pool: ConnectionPool, levels: list[drl.Level], webhook: str | None):
     def on_store(event: evt.Event) -> int:
         ds = event.dataset
+        ds.file_meta = event.file_meta
+        try:

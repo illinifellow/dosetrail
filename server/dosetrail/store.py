@@ -4,3 +4,5 @@ queries are few, and the dashboard's percentile and window queries read better a
 import hashlib
 import hmac
 import os
+
+from psycopg import Connection

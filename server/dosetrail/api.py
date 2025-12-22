@@ -29,3 +29,5 @@ def overview(since: date | None = None):
     )
     return totals
 
+
+@app.get("/api/protocols")

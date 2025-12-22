@@ -44,3 +44,5 @@ def protocols(modality: str = "CT", days: int = 90):
 
 @app.get("/api/devices")
 def devices(days: int = 90):
+    """The same protocol on different scanners is where optimisation usually starts."""
+    return rows(

@@ -16,3 +16,10 @@ def rows(sql: str, *params):
     with pool.connection() as conn:
         return conn.execute(sql, params).fetchall()
 
+
+@app.get("/api/overview")
+def overview(since: date | None = None):
+    since = since or date.today().replace(day=1)
+    [totals] = rows(
+        """SELECT count(*) AS studies, count(*) FILTER (WHERE modality = 'CT') AS ct,
+                  (SELECT count(*) FROM alerts WHERE reviewed_at IS NULL) AS open_alerts,

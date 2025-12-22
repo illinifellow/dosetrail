@@ -51,3 +51,4 @@ def devices(days: int = 90):
            GROUP BY device, protocol HAVING count(*) >= 5 ORDER BY protocol, median_dlp DESC""",
         days,
     )
+

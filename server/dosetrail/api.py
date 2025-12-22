@@ -31,3 +31,5 @@ def overview(since: date | None = None):
 
 
 @app.get("/api/protocols")
+def protocols(modality: str = "CT", days: int = 90):
+    """Per protocol: the distribution of DLP, for the box plot against the DRL line."""

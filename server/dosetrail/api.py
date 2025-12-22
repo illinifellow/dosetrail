@@ -34,3 +34,4 @@ def overview(since: date | None = None):
 def protocols(modality: str = "CT", days: int = 90):
     """Per protocol: the distribution of DLP, for the box plot against the DRL line."""
     return rows(
+        """SELECT protocol, count(*) AS n,

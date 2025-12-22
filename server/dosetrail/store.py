@@ -21,3 +21,5 @@ def patient_key(issuer: str, patient_id: str) -> str:
 
 def save(conn: Connection, report: DoseReport, levels: list[Level]) -> list[tuple[str, str]]:
     with conn.transaction():
+        patient = conn.execute(
+            """INSERT INTO patients (key, sex, birth_year) VALUES (%s, %s, %s)

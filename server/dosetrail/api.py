@@ -47,3 +47,7 @@ def devices(days: int = 90):
     """The same protocol on different scanners is where optimisation usually starts."""
     return rows(
         """SELECT device, protocol, count(*) AS n, percentile_cont(0.5) WITHIN GROUP (ORDER BY total_dlp) AS median_dlp
+           FROM studies WHERE modality = 'CT' AND performed_at > now() - make_interval(days => %s)
+           GROUP BY device, protocol HAVING count(*) >= 5 ORDER BY protocol, median_dlp DESC""",
+        days,
+    )

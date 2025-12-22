@@ -35,3 +35,8 @@ def protocols(modality: str = "CT", days: int = 90):
     """Per protocol: the distribution of DLP, for the box plot against the DRL line."""
     return rows(
         """SELECT protocol, count(*) AS n,
+                  percentile_cont(ARRAY[0.05, 0.25, 0.5, 0.75, 0.95]) WITHIN GROUP (ORDER BY total_dlp) AS dlp
+           FROM studies WHERE modality = %s AND performed_at > now() - make_interval(days => %s) AND total_dlp IS NOT NULL
+           GROUP BY protocol HAVING count(*) >= 10 ORDER BY n DESC LIMIT 20""",
+        modality, days,
+    )

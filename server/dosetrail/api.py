@@ -23,3 +23,9 @@ def overview(since: date | None = None):
     [totals] = rows(
         """SELECT count(*) AS studies, count(*) FILTER (WHERE modality = 'CT') AS ct,
                   (SELECT count(*) FROM alerts WHERE reviewed_at IS NULL) AS open_alerts,
+                  percentile_cont(0.5) WITHIN GROUP (ORDER BY effective_msv) AS median_msv
+           FROM studies WHERE performed_at >= %s""",
+        since,
+    )
+    return totals
+

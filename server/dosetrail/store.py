@@ -12,3 +12,6 @@ from .rdsr import DoseReport
 
 SECRET = os.environ.get("DOSETRAIL_PSEUDONYM_KEY", "").encode()
 
+
+def patient_key(issuer: str, patient_id: str) -> str:
+    if not SECRET:

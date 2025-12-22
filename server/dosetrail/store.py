@@ -9,3 +9,5 @@ from psycopg import Connection
 
 from .drl import Level, check
 from .rdsr import DoseReport
+
+SECRET = os.environ.get("DOSETRAIL_PSEUDONYM_KEY", "").encode()

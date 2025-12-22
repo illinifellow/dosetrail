@@ -15,3 +15,4 @@ pool = ConnectionPool(os.environ.get("DATABASE_URL", "postgresql://dosetrail@loc
 def rows(sql: str, *params):
     with pool.connection() as conn:
         return conn.execute(sql, params).fetchall()
+

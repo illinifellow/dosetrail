@@ -52,3 +52,5 @@ def devices(days: int = 90):
         days,
     )
 
+
+@app.get("/api/alerts")

@@ -40,3 +40,6 @@ def protocols(modality: str = "CT", days: int = 90):
            GROUP BY protocol HAVING count(*) >= 10 ORDER BY n DESC LIMIT 20""",
         modality, days,
     )
+
+
+@app.get("/api/devices")

@@ -66,3 +66,6 @@ def alerts(open_only: bool = True):
 class Review(BaseModel):
     reviewed_by: str
     note: str
+
+
+@app.post("/api/alerts/{alert_id}/review")

@@ -4,3 +4,4 @@
   "type": "module",
   "scripts": { "dev": "vite", "build": "tsc -b && vite build" },
   "dependencies": {
+    "@mantine/core": "^7.15.0",

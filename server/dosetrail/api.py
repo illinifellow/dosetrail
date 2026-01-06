@@ -58,3 +58,6 @@ def alerts(open_only: bool = True):
     return rows(
         """SELECT a.*, s.protocol, s.device, s.performed_at, s.total_dlp, s.total_dap
            FROM alerts a JOIN studies s USING (study_uid)
+           WHERE NOT %s OR a.reviewed_at IS NULL ORDER BY a.raised_at DESC LIMIT 200""",
+        open_only,
+    )

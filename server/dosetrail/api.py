@@ -78,3 +78,4 @@ def review(alert_id: int, body: Review):
     if not done:
         raise HTTPException(404)
     return {"ok": True}
+

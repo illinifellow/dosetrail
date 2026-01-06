@@ -86,3 +86,4 @@ def history(key: str):
     return rows(
         """SELECT s.performed_at, s.modality, s.protocol, s.total_dlp, s.effective_msv,
                   sum(s.effective_msv) OVER (ORDER BY s.performed_at RANGE BETWEEN interval '5 years' PRECEDING AND CURRENT ROW) AS running_msv
+           FROM studies s JOIN patients p ON p.id = s.patient_id WHERE p.key = %s ORDER BY s.performed_at""",

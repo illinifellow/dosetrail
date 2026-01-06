@@ -61,3 +61,8 @@ def alerts(open_only: bool = True):
            WHERE NOT %s OR a.reviewed_at IS NULL ORDER BY a.raised_at DESC LIMIT 200""",
         open_only,
     )
+
+
+class Review(BaseModel):
+    reviewed_by: str
+    note: str

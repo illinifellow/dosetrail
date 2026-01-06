@@ -79,3 +79,5 @@ def review(alert_id: int, body: Review):
         raise HTTPException(404)
     return {"ok": True}
 
+
+@app.get("/api/patients/{key}/history")

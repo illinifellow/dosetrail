@@ -81,3 +81,5 @@ def review(alert_id: int, body: Review):
 
 
 @app.get("/api/patients/{key}/history")
+def history(key: str):
+    """One pseudonymous patient's studies and running five-year effective dose."""

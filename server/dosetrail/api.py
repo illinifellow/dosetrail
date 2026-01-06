@@ -72,3 +72,5 @@ class Review(BaseModel):
 def review(alert_id: int, body: Review):
     with pool.connection() as conn:
         done = conn.execute(
+            "UPDATE alerts SET reviewed_by = %s, note = %s, reviewed_at = now() WHERE id = %s RETURNING id",
+            (body.reviewed_by, body.note, alert_id),

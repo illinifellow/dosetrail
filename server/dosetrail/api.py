@@ -74,3 +74,7 @@ def review(alert_id: int, body: Review):
         done = conn.execute(
             "UPDATE alerts SET reviewed_by = %s, note = %s, reviewed_at = now() WHERE id = %s RETURNING id",
             (body.reviewed_by, body.note, alert_id),
+        ).fetchone()
+    if not done:
+        raise HTTPException(404)
+    return {"ok": True}

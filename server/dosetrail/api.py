@@ -57,3 +57,4 @@ def devices(days: int = 90):
 def alerts(open_only: bool = True):
     return rows(
         """SELECT a.*, s.protocol, s.device, s.performed_at, s.total_dlp, s.total_dap
+           FROM alerts a JOIN studies s USING (study_uid)

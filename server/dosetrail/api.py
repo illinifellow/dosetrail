@@ -69,3 +69,6 @@ class Review(BaseModel):
 
 
 @app.post("/api/alerts/{alert_id}/review")
+def review(alert_id: int, body: Review):
+    with pool.connection() as conn:
+        done = conn.execute(

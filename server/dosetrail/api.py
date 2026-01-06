@@ -54,3 +54,6 @@ def devices(days: int = 90):
 
 
 @app.get("/api/alerts")
+def alerts(open_only: bool = True):
+    return rows(
+        """SELECT a.*, s.protocol, s.device, s.performed_at, s.total_dlp, s.total_dap

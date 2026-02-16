@@ -6,3 +6,4 @@ const fetcher = (url: string) => fetch(url).then(r => {
 })
 
 export type Overview = { studies: number; ct: number; open_alerts: number; median_msv: number | null }
+export type ProtocolDose = { protocol: string; n: number; dlp: [number, number, number, number, number] }

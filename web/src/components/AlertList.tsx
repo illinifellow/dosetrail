@@ -7,3 +7,7 @@ const label: Record<Alert['kind'], { text: string; color: string }> = {
   cumulative: { text: 'Cumulative', color: 'grape' },
   repeat_scan: { text: 'Repeat', color: 'orange' },
 }
+
+export function AlertList() {
+  const { data = [], mutate } = useAlerts()
+  const [note, setNote] = useState<Record<number, string>>({})

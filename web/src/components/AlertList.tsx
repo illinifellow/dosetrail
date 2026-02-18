@@ -30,3 +30,4 @@ export function AlertList() {
             <Table.Td c="dimmed">{a.device}</Table.Td>
             <Table.Td>
               <Group gap={6} wrap="nowrap">
+                <TextInput size="xs" placeholder="Reason, e.g. obese patient" value={note[a.id] ?? ''} onChange={e => setNote({ ...note, [a.id]: e.target.value })} />

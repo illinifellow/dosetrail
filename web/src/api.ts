@@ -17,3 +17,4 @@ export const useProtocols = (days: number) => useSWR<ProtocolDose[]>(`/api/proto
 export const useAlerts = () => useSWR<Alert[]>('/api/alerts', fetcher, { refreshInterval: 30_000 })
 
 export const review = (id: number, reviewed_by: string, note: string) =>
+  fetch(`/api/alerts/${id}/review`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ reviewed_by, note }) })

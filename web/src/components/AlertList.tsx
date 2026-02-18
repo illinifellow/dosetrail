@@ -31,3 +31,6 @@ export function AlertList() {
             <Table.Td>
               <Group gap={6} wrap="nowrap">
                 <TextInput size="xs" placeholder="Reason, e.g. obese patient" value={note[a.id] ?? ''} onChange={e => setNote({ ...note, [a.id]: e.target.value })} />
+                <Button size="xs" variant="default" disabled={!note[a.id]} onClick={async () => { await review(a.id, 'physicist', note[a.id]); void mutate() }}>
+                  Reviewed
+                </Button>

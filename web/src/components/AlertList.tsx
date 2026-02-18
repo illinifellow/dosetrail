@@ -34,3 +34,4 @@ export function AlertList() {
                 <Button size="xs" variant="default" disabled={!note[a.id]} onClick={async () => { await review(a.id, 'physicist', note[a.id]); void mutate() }}>
                   Reviewed
                 </Button>
+              </Group>

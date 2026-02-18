@@ -9,3 +9,5 @@ export function ProtocolChart({ data, drl }: { data: ProtocolDose[]; drl: Record
     <ReactECharts
       style={{ height: 36 * data.length + 60 }}
       option={{
+        textStyle: { fontFamily: 'Inter' },
+        grid: { left: 190, right: 30, top: 10, bottom: 30 },

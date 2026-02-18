@@ -11,3 +11,6 @@ const label: Record<Alert['kind'], { text: string; color: string }> = {
 export function AlertList() {
   const { data = [], mutate } = useAlerts()
   const [note, setNote] = useState<Record<number, string>>({})
+  return (
+    <Table verticalSpacing="xs" highlightOnHover>
+      <Table.Thead>

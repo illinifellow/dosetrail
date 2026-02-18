@@ -15,3 +15,4 @@ export function AlertList() {
     <Table verticalSpacing="xs" highlightOnHover>
       <Table.Thead>
         <Table.Tr><Table.Th>When</Table.Th><Table.Th>Why</Table.Th><Table.Th>Protocol</Table.Th><Table.Th>Scanner</Table.Th><Table.Th /></Table.Tr>
+      </Table.Thead>

@@ -22,3 +22,5 @@ export function AlertList() {
             <Table.Td><Text ff="monospace" size="xs">{new Date(a.raised_at).toLocaleString()}</Text></Table.Td>
             <Table.Td>
               <Group gap={6} wrap="nowrap">
+                <Badge variant="light" color={label[a.kind].color} radius="sm">{label[a.kind].text}</Badge>
+                <Text size="sm">{a.detail}</Text>

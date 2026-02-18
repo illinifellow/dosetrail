@@ -18,3 +18,7 @@ export function AlertList() {
       </Table.Thead>
       <Table.Tbody>
         {data.map(a => (
+          <Table.Tr key={a.id}>
+            <Table.Td><Text ff="monospace" size="xs">{new Date(a.raised_at).toLocaleString()}</Text></Table.Td>
+            <Table.Td>
+              <Group gap={6} wrap="nowrap">

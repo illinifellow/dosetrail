@@ -12,3 +12,4 @@ export function ProtocolChart({ data, drl }: { data: ProtocolDose[]; drl: Record
         textStyle: { fontFamily: 'Inter' },
         grid: { left: 190, right: 30, top: 10, bottom: 30 },
         tooltip: { trigger: 'item' },
+        xAxis: { type: 'value', name: 'DLP, mGy·cm', nameLocation: 'middle', nameGap: 22, splitLine: { lineStyle: { color: '#e3e1db' } } },

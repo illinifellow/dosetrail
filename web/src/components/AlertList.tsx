@@ -35,3 +35,5 @@ export function AlertList() {
                   Reviewed
                 </Button>
               </Group>
+            </Table.Td>
+          </Table.Tr>

@@ -11,3 +11,5 @@ export type Alert = {
   id: number; study_uid: string; kind: 'above_drl' | 'cumulative' | 'repeat_scan'; detail: string
   raised_at: string; protocol: string | null; device: string | null; total_dlp: number | null
 }
+
+export const useOverview = () => useSWR<Overview>('/api/overview', fetcher)

@@ -11,3 +11,4 @@ export function ProtocolChart({ data, drl }: { data: ProtocolDose[]; drl: Record
       option={{
         textStyle: { fontFamily: 'Inter' },
         grid: { left: 190, right: 30, top: 10, bottom: 30 },
+        tooltip: { trigger: 'item' },

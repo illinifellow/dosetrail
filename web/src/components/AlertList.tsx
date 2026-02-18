@@ -24,3 +24,9 @@ export function AlertList() {
               <Group gap={6} wrap="nowrap">
                 <Badge variant="light" color={label[a.kind].color} radius="sm">{label[a.kind].text}</Badge>
                 <Text size="sm">{a.detail}</Text>
+              </Group>
+            </Table.Td>
+            <Table.Td>{a.protocol}</Table.Td>
+            <Table.Td c="dimmed">{a.device}</Table.Td>
+            <Table.Td>
+              <Group gap={6} wrap="nowrap">

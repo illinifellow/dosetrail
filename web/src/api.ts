@@ -15,3 +15,5 @@ export type Alert = {
 export const useOverview = () => useSWR<Overview>('/api/overview', fetcher)
 export const useProtocols = (days: number) => useSWR<ProtocolDose[]>(`/api/protocols?days=${days}`, fetcher)
 export const useAlerts = () => useSWR<Alert[]>('/api/alerts', fetcher, { refreshInterval: 30_000 })
+
+export const review = (id: number, reviewed_by: string, note: string) =>

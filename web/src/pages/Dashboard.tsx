@@ -16,3 +16,4 @@ function Stat({ label, value, unit }: { label: string; value: string | number | 
 }
 
 export function Dashboard() {
+  const [days, setDays] = useState('90')

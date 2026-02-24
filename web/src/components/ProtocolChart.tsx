@@ -23,3 +23,4 @@ export function ProtocolChart({ data, drl }: { data: ProtocolDose[]; drl: Record
           {
             type: 'scatter',
             symbol: 'rect',
+            symbolSize: [3, 22],

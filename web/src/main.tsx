@@ -6,3 +6,6 @@ import { Dashboard } from './pages/Dashboard'
 import { theme } from './theme'
 
 createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <MantineProvider theme={theme} defaultColorScheme="auto">
+      <AppShell header={{ height: 48 }} padding="lg">

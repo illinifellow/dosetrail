@@ -18,3 +18,5 @@ export function ProtocolChart({ data, drl }: { data: ProtocolDose[]; drl: Record
           {
             type: 'boxplot',
             data: data.map(d => d.dlp),
+            itemStyle: { color: '#e8f0ff', borderColor: '#1365fc' },
+          },

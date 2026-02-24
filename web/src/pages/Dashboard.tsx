@@ -13,3 +13,4 @@ function Stat({ label, value, unit }: { label: string; value: string | number | 
       <Text ff="monospace" fz={26} fw={500}>{value ?? '—'}{unit && <Text span size="sm" c="dimmed"> {unit}</Text>}</Text>
     </Card>
   )
+}

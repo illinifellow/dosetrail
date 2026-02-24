@@ -13,3 +13,5 @@ createRoot(document.getElementById('root')!).render(
         <AppShell.Main><Dashboard /></AppShell.Main>
       </AppShell>
     </MantineProvider>
+  </StrictMode>,
+)

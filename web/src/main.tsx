@@ -11,3 +11,5 @@ createRoot(document.getElementById('root')!).render(
       <AppShell header={{ height: 48 }} padding="lg">
         <AppShell.Header><Group h="100%" px="lg"><Title order={3}>dosetrail</Title></Group></AppShell.Header>
         <AppShell.Main><Dashboard /></AppShell.Main>
+      </AppShell>
+    </MantineProvider>

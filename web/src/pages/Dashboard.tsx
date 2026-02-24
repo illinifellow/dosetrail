@@ -14,3 +14,5 @@ function Stat({ label, value, unit }: { label: string; value: string | number | 
     </Card>
   )
 }
+
+export function Dashboard() {

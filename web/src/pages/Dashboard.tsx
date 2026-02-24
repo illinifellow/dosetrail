@@ -10,3 +10,6 @@ function Stat({ label, value, unit }: { label: string; value: string | number | 
   return (
     <Card withBorder padding="md">
       <Text size="xs" c="dimmed" tt="uppercase" fw={600}>{label}</Text>
+      <Text ff="monospace" fz={26} fw={500}>{value ?? '—'}{unit && <Text span size="sm" c="dimmed"> {unit}</Text>}</Text>
+    </Card>
+  )

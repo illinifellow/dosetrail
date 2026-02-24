@@ -17,3 +17,4 @@ export function ProtocolChart({ data, drl }: { data: ProtocolDose[]; drl: Record
         series: [
           {
             type: 'boxplot',
+            data: data.map(d => d.dlp),

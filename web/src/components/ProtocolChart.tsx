@@ -20,3 +20,6 @@ export function ProtocolChart({ data, drl }: { data: ProtocolDose[]; drl: Record
             data: data.map(d => d.dlp),
             itemStyle: { color: '#e8f0ff', borderColor: '#1365fc' },
           },
+          {
+            type: 'scatter',
+            symbol: 'rect',

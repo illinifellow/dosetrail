@@ -29,3 +29,7 @@ export function ProtocolChart({ data, drl }: { data: ProtocolDose[]; drl: Record
             tooltip: { formatter: (p: { value: [number] }) => `DRL ${p.value[0]} mGy·cm` },
           },
         ],
+      }}
+    />
+  )
+}

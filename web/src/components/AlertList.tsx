@@ -37,3 +37,8 @@ export function AlertList() {
               </Group>
             </Table.Td>
           </Table.Tr>
+        ))}
+      </Table.Tbody>
+    </Table>
+  )
+}

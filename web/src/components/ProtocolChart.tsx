@@ -26,3 +26,6 @@ export function ProtocolChart({ data, drl }: { data: ProtocolDose[]; drl: Record
             symbolSize: [3, 22],
             itemStyle: { color: doseColors.drl },
             data: data.map((d, i) => (drl[d.protocol] ? [drl[d.protocol], i] : null)).filter(Boolean),
+            tooltip: { formatter: (p: { value: [number] }) => `DRL ${p.value[0]} mGy·cm` },
+          },
+        ],

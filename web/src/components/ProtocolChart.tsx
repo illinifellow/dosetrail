@@ -25,3 +25,4 @@ export function ProtocolChart({ data, drl }: { data: ProtocolDose[]; drl: Record
             symbol: 'rect',
             symbolSize: [3, 22],
             itemStyle: { color: doseColors.drl },
+            data: data.map((d, i) => (drl[d.protocol] ? [drl[d.protocol], i] : null)).filter(Boolean),

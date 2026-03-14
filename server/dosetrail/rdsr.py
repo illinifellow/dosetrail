@@ -76,3 +76,6 @@ class DoseReport:
             total += e.dlp * k
         return round(total, 2)
 
+
+def _code(item: Dataset) -> tuple[str, str] | None:
+    seq = item.get("ConceptNameCodeSequence")

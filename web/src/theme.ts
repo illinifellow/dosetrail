@@ -12,3 +12,6 @@ export const theme = createTheme({
   fontFamilyMonospace: '"Martian Mono", ui-monospace, monospace',
   headings: { fontFamily: 'Raleway, Helvetica, Arial, sans-serif', fontWeight: '600' },
   defaultRadius: 'sm',
+  radius: { xs: '3px', sm: '6px', md: '9px', lg: '12px' },
+  fontSizes: { xs: '11px', sm: '12px', md: '13px', lg: '15px' },
+})

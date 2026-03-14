@@ -53,3 +53,5 @@ class DoseReport:
     issuer: str
     sex: str | None
     birth_year: int | None
+    performed_at: datetime
+    modality: str

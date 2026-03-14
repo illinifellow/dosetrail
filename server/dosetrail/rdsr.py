@@ -86,3 +86,9 @@ def _walk(items) -> Iterator[Dataset]:
     for item in items or []:
         yield item
         yield from _walk(item.get("ContentSequence"))
+
+
+def _num(item: Dataset) -> float | None:
+    mv = item.get("MeasuredValueSequence")
+    return float(mv[0].NumericValue) if mv else None
+

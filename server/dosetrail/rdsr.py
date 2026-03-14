@@ -80,3 +80,4 @@ class DoseReport:
 def _code(item: Dataset) -> tuple[str, str] | None:
     seq = item.get("ConceptNameCodeSequence")
     return (seq[0].CodingSchemeDesignator, seq[0].CodeValue) if seq else None
+

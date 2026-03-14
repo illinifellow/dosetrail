@@ -84,3 +84,4 @@ def _code(item: Dataset) -> tuple[str, str] | None:
 
 def _walk(items) -> Iterator[Dataset]:
     for item in items or []:
+        yield item

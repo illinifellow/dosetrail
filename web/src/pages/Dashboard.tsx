@@ -28,3 +28,5 @@ export function Dashboard() {
         <Stat label="Open alerts" value={o?.open_alerts} />
       </SimpleGrid>
       <Card withBorder>
+        <Group justify="space-between" mb="sm">
+          <Title order={4}>CT dose by protocol</Title>

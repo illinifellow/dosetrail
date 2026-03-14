@@ -7,3 +7,6 @@ const warm: MantineColorsTuple = ['#fdfbf6', '#f7f5ef', '#eeebe4', '#e0ddd5', '#
 
 export const theme = createTheme({
   primaryColor: 'accent',
+  colors: { accent, warm },
+  fontFamily: 'Inter, Helvetica, Arial, sans-serif',
+  fontFamilyMonospace: '"Martian Mono", ui-monospace, monospace',

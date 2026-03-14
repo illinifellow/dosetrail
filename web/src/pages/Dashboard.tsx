@@ -34,3 +34,6 @@ export function Dashboard() {
         </Group>
         <ProtocolChart data={protocols} drl={DRL} />
       </Card>
+      <Card withBorder>
+        <Title order={4} mb="sm">Alerts to review</Title>
+        <AlertList />

@@ -57,3 +57,6 @@ class DoseReport:
     modality: str
     device: str
     protocol: str | None
+    total_dlp: float | None = None
+    total_dap: float | None = None
+    fluoro_seconds: float | None = None

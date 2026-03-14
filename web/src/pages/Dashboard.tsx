@@ -32,3 +32,5 @@ export function Dashboard() {
           <Title order={4}>CT dose by protocol</Title>
           <SegmentedControl size="xs" value={days} onChange={setDays} data={[{ label: '30 d', value: '30' }, { label: '90 d', value: '90' }, { label: '1 y', value: '365' }]} />
         </Group>
+        <ProtocolChart data={protocols} drl={DRL} />
+      </Card>

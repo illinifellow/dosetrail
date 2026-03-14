@@ -37,3 +37,7 @@ export function Dashboard() {
       <Card withBorder>
         <Title order={4} mb="sm">Alerts to review</Title>
         <AlertList />
+      </Card>
+    </Stack>
+  )
+}

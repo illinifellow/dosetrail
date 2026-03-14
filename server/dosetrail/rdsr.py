@@ -60,3 +60,9 @@ class DoseReport:
     total_dlp: float | None = None
     total_dap: float | None = None
     fluoro_seconds: float | None = None
+    events: list[Event] = field(default_factory=list)
+
+    @property
+    def effective_msv(self) -> float | None:
+        """Effective dose from DLP per event and anatomy; None for projection imaging, where DAP
+        conversion depends on geometry the report does not carry reliably."""

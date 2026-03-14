@@ -66,3 +66,5 @@ class DoseReport:
     def effective_msv(self) -> float | None:
         """Effective dose from DLP per event and anatomy; None for projection imaging, where DAP
         conversion depends on geometry the report does not carry reliably."""
+        if self.modality != "CT" or not self.events:
+            return None

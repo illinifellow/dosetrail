@@ -25,3 +25,4 @@ export function Dashboard() {
         <Stat label="Studies this month" value={o?.studies} />
         <Stat label="CT" value={o?.ct} />
         <Stat label="Median effective dose" value={o?.median_msv?.toFixed(1)} unit="mSv" />
+        <Stat label="Open alerts" value={o?.open_alerts} />

@@ -15,3 +15,5 @@ export const theme = createTheme({
   radius: { xs: '3px', sm: '6px', md: '9px', lg: '12px' },
   fontSizes: { xs: '11px', sm: '12px', md: '13px', lg: '15px' },
 })
+
+export const doseColors = { ok: '#2f7a4d', near: '#b1651a', over: '#c14840', drl: '#9544a9' }

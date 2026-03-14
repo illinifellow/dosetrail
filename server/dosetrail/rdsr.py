@@ -44,3 +44,8 @@ class Event:
     scan_length_mm: float | None = None
     dap: float | None = None
     kvp: float | None = None
+
+
+@dataclass
+class DoseReport:
+    study_uid: str

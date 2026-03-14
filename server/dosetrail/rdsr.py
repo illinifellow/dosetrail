@@ -55,3 +55,5 @@ class DoseReport:
     birth_year: int | None
     performed_at: datetime
     modality: str
+    device: str
+    protocol: str | None

@@ -73,3 +73,6 @@ class DoseReport:
             k = K_FACTORS.get((e.anatomy or "").lower())
             if k is None or e.dlp is None:
                 return None
+            total += e.dlp * k
+        return round(total, 2)
+

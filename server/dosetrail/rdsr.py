@@ -68,3 +68,5 @@ class DoseReport:
         conversion depends on geometry the report does not carry reliably."""
         if self.modality != "CT" or not self.events:
             return None
+        total = 0.0
+        for e in self.events:

@@ -22,3 +22,4 @@ export function Dashboard() {
   return (
     <Stack gap="lg">
       <SimpleGrid cols={4}>
+        <Stat label="Studies this month" value={o?.studies} />

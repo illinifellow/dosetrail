@@ -49,3 +49,7 @@ class Event:
 @dataclass
 class DoseReport:
     study_uid: str
+    patient_id: str
+    issuer: str
+    sex: str | None
+    birth_year: int | None

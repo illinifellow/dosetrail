@@ -143,3 +143,11 @@ def parse(ds: Dataset) -> DoseReport:
     for item in _walk(ds.ContentSequence):
         code = _code(item)
         if code in (CT_ACQUISITION, IRRADIATION_EVENT):
+            report.events.append(_event(item))
+        elif code == DLP_TOTAL:
+            report.total_dlp = _num(item)
+        elif code == DAP_TOTAL:
+            report.total_dap = _num(item)
+        elif code == FLUORO_TIME_TOTAL:
+            report.fluoro_seconds = _num(item)
+        elif code == PROTOCOL and report.protocol is None:

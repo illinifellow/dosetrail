@@ -3,3 +3,7 @@ databaseUrlSecret: dosetrail-db
 pseudonymKeySecret: dosetrail-pseudonym
 aeTitle: DOSETRAIL
 # scanners connect to this directly, so it is a LoadBalancer on the hospital network, not an ingress
+dicom:
+  serviceType: LoadBalancer
+  port: 11112
+  loadBalancerSourceRanges: ["10.0.0.0/8"]

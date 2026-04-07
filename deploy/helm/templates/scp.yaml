@@ -1,2 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
+metadata: { name: {{ .Release.Name }}-scp }
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: {{ .Release.Name }}-scp } }
+  template:
+    metadata: { labels: { app: {{ .Release.Name }}-scp } }

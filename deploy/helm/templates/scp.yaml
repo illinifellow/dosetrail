@@ -8,3 +8,5 @@ spec:
     metadata: { labels: { app: {{ .Release.Name }}-scp } }
     spec:
       containers:
+        - name: scp
+          image: {{ .Values.image }}

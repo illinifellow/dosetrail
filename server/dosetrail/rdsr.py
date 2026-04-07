@@ -114,3 +114,6 @@ def _event(container: Dataset) -> Event:
             case c if c == TARGET_REGION:
                 e.anatomy = _text(item)
             case c if c == MEAN_CTDIVOL:
+                e.ctdi_vol = _num(item)
+            case c if c == DLP:
+                e.dlp = _num(item)

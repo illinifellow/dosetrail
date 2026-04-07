@@ -10,3 +10,9 @@ spec:
       containers:
         - name: scp
           image: {{ .Values.image }}
+          args: ["dosetrail-scp", "--aet", {{ .Values.aeTitle | quote }}]
+          ports: [{ containerPort: 11112 }]
+          env:
+            - name: DATABASE_URL
+              valueFrom: { secretKeyRef: { name: {{ .Values.databaseUrlSecret }}, key: url } }
+            - name: DOSETRAIL_PSEUDONYM_KEY

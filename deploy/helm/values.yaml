@@ -7,3 +7,4 @@ dicom:
   serviceType: LoadBalancer
   port: 11112
   loadBalancerSourceRanges: ["10.0.0.0/8"]
+webhook: ""

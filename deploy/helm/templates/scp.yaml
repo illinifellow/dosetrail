@@ -22,3 +22,8 @@ spec:
 apiVersion: v1
 kind: Service
 metadata: { name: {{ .Release.Name }}-dicom }
+spec:
+  type: {{ .Values.dicom.serviceType }}
+  loadBalancerSourceRanges: {{- toYaml .Values.dicom.loadBalancerSourceRanges | nindent 4 }}
+  selector: { app: {{ .Release.Name }}-scp }
+  ports: [{ port: {{ .Values.dicom.port }}, targetPort: 11112, name: dicom }]

@@ -113,3 +113,4 @@ def _event(container: Dataset) -> Event:
                 e.kind = (_text(item) or "unknown").lower()
             case c if c == TARGET_REGION:
                 e.anatomy = _text(item)
+            case c if c == MEAN_CTDIVOL:

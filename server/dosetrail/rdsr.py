@@ -101,3 +101,9 @@ def _text(item: Dataset) -> str | None:
     if "UID" in item:
         return str(item.UID)
     return None
+
+
+def _event(container: Dataset) -> Event:
+    e = Event(uid="", kind="unknown")
+    for item in _walk(container.get("ContentSequence")):
+        match _code(item):

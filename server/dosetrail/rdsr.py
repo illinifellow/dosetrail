@@ -132,3 +132,8 @@ def parse(ds: Dataset) -> DoseReport:
     report = DoseReport(
         study_uid=str(ds.StudyInstanceUID),
         patient_id=str(ds.get("PatientID", "")),
+        issuer=str(ds.get("IssuerOfPatientID", "")),
+        sex=str(ds.get("PatientSex", "")) or None,
+        birth_year=int(birth[:4]) if birth[:4].isdigit() else None,
+        performed_at=datetime.strptime(when, "%Y%m%d%H%M%S"),
+        modality="CT" if any(_code(i) == CT_ACQUISITION for i in _walk(ds.ContentSequence)) else "XA",

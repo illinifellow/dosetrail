@@ -121,3 +121,4 @@ def _event(container: Dataset) -> Event:
                 e.scan_length_mm = _num(item)
             case c if c == KVP:
                 e.kvp = e.kvp or _num(item)
+            case c if c == DAP:

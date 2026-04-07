@@ -100,3 +100,4 @@ def _text(item: Dataset) -> str | None:
         return str(item.TextValue)
     if "UID" in item:
         return str(item.UID)
+    return None

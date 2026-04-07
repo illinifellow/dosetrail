@@ -117,3 +117,4 @@ def _event(container: Dataset) -> Event:
                 e.ctdi_vol = _num(item)
             case c if c == DLP:
                 e.dlp = _num(item)
+            case c if c == SCAN_LENGTH:

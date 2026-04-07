@@ -123,3 +123,7 @@ def _event(container: Dataset) -> Event:
                 e.kvp = e.kvp or _num(item)
             case c if c == DAP:
                 e.dap = _num(item)
+    return e
+
+
+def parse(ds: Dataset) -> DoseReport:

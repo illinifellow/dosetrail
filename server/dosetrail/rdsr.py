@@ -137,3 +137,4 @@ def parse(ds: Dataset) -> DoseReport:
         birth_year=int(birth[:4]) if birth[:4].isdigit() else None,
         performed_at=datetime.strptime(when, "%Y%m%d%H%M%S"),
         modality="CT" if any(_code(i) == CT_ACQUISITION for i in _walk(ds.ContentSequence)) else "XA",
+        device=" ".join(filter(None, [ds.get("Manufacturer"), ds.get("ManufacturerModelName"), ds.get("StationName")])),

@@ -95,3 +95,7 @@ def _num(item: Dataset) -> float | None:
 
 def _text(item: Dataset) -> str | None:
     if "ConceptCodeSequence" in item:
+        return str(item.ConceptCodeSequence[0].CodeMeaning)
+    if "TextValue" in item:
+        return str(item.TextValue)
+    if "UID" in item:

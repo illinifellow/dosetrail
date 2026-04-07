@@ -6,3 +6,4 @@ spec:
   selector: { matchLabels: { app: {{ .Release.Name }}-scp } }
   template:
     metadata: { labels: { app: {{ .Release.Name }}-scp } }
+    spec:

@@ -1,0 +1,5 @@
+image: ghcr.io/illinifellow/dosetrail:0.5.0
+databaseUrlSecret: dosetrail-db
+pseudonymKeySecret: dosetrail-pseudonym
+aeTitle: DOSETRAIL
+# scanners connect to this directly, so it is a LoadBalancer on the hospital network, not an ingress

@@ -1,0 +1,20 @@
+import useSWR from 'swr'
+
+const fetcher = (url: string) => fetch(url).then(r => {
+  if (!r.ok) throw new Error(`${r.status} ${url}`)
+  return r.json()
+})
+
+export type Overview = { studies: number; ct: number; open_alerts: number; median_msv: number | null }
+export type ProtocolDose = { protocol: string; n: number; dlp: [number, number, number, number, number] }
+export type Alert = {
+  id: number; study_uid: string; kind: 'above_drl' | 'cumulative' | 'repeat_scan'; detail: string
+  raised_at: string; protocol: string | null; device: string | null; total_dlp: number | null
+}
+
+export const useOverview = () => useSWR<Overview>('/api/overview', fetcher)
+export const useProtocols = (days: number) => useSWR<ProtocolDose[]>(`/api/protocols?days=${days}`, fetcher)
+export const useAlerts = () => useSWR<Alert[]>('/api/alerts', fetcher, { refreshInterval: 30_000 })
+
+export const review = (id: number, reviewed_by: string, note: string) =>
+  fetch(`/api/alerts/${id}/review`, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ reviewed_by, note }) })

@@ -7,3 +7,4 @@ spec:
   template:
     metadata: { labels: { app: {{ .Release.Name }}-scp } }
     spec:
+      containers:

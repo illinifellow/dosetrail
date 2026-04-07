@@ -130,3 +130,5 @@ def parse(ds: Dataset) -> DoseReport:
     birth = str(ds.get("PatientBirthDate", "") or "")
     when = str(ds.get("StudyDate", "")) + str(ds.get("StudyTime", "000000")).split(".")[0].ljust(6, "0")
     report = DoseReport(
+        study_uid=str(ds.StudyInstanceUID),
+        patient_id=str(ds.get("PatientID", "")),

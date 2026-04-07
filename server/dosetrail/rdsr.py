@@ -138,3 +138,8 @@ def parse(ds: Dataset) -> DoseReport:
         performed_at=datetime.strptime(when, "%Y%m%d%H%M%S"),
         modality="CT" if any(_code(i) == CT_ACQUISITION for i in _walk(ds.ContentSequence)) else "XA",
         device=" ".join(filter(None, [ds.get("Manufacturer"), ds.get("ManufacturerModelName"), ds.get("StationName")])),
+        protocol=None,
+    )
+    for item in _walk(ds.ContentSequence):
+        code = _code(item)
+        if code in (CT_ACQUISITION, IRRADIATION_EVENT):

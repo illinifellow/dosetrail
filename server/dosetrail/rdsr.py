@@ -107,3 +107,6 @@ def _event(container: Dataset) -> Event:
     e = Event(uid="", kind="unknown")
     for item in _walk(container.get("ContentSequence")):
         match _code(item):
+            case c if c == EVENT_UID:
+                e.uid = _text(item) or ""
+            case c if c == ACQUISITION_TYPE:

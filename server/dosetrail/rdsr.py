@@ -44,3 +44,60 @@ class Event:
     scan_length_mm: float | None = None
     dap: float | None = None
     kvp: float | None = None
+
+
+@dataclass
+class DoseReport:
+    study_uid: str
+    patient_id: str
+    issuer: str
+    sex: str | None
+    birth_year: int | None
+    performed_at: datetime
+    modality: str
+    device: str
+    protocol: str | None
+    total_dlp: float | None = None
+    total_dap: float | None = None
+    fluoro_seconds: float | None = None
+    events: list[Event] = field(default_factory=list)
+
+    @property
+    def effective_msv(self) -> float | None:
+        """Effective dose from DLP per event and anatomy; None for projection imaging, where DAP
+        conversion depends on geometry the report does not carry reliably."""
+        if self.modality != "CT" or not self.events:
+            return None
+        total = 0.0
+        for e in self.events:
+            k = K_FACTORS.get((e.anatomy or "").lower())
+            if k is None or e.dlp is None:
+                return None
+            total += e.dlp * k
+        return round(total, 2)
+
+
+def _code(item: Dataset) -> tuple[str, str] | None:
+    seq = item.get("ConceptNameCodeSequence")
+    return (seq[0].CodingSchemeDesignator, seq[0].CodeValue) if seq else None
+
+
+def _walk(items) -> Iterator[Dataset]:
+    for item in items or []:
+        yield item
+        yield from _walk(item.get("ContentSequence"))
+
+
+def _num(item: Dataset) -> float | None:
+    mv = item.get("MeasuredValueSequence")
+    return float(mv[0].NumericValue) if mv else None
+
+
+def _text(item: Dataset) -> str | None:
+    if "ConceptCodeSequence" in item:
+        return str(item.ConceptCodeSequence[0].CodeMeaning)
+    if "TextValue" in item:
+        return str(item.TextValue)
+    if "UID" in item:
+        return str(item.UID)
+    return None

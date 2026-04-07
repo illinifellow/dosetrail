@@ -18,3 +18,4 @@ spec:
             - name: DOSETRAIL_PSEUDONYM_KEY
               valueFrom: { secretKeyRef: { name: {{ .Values.pseudonymKeySecret }}, key: key } }
             - { name: DOSETRAIL_WEBHOOK, value: {{ .Values.webhook | quote }} }
+---

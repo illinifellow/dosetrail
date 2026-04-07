@@ -110,3 +110,6 @@ def _event(container: Dataset) -> Event:
             case c if c == EVENT_UID:
                 e.uid = _text(item) or ""
             case c if c == ACQUISITION_TYPE:
+                e.kind = (_text(item) or "unknown").lower()
+            case c if c == TARGET_REGION:
+                e.anatomy = _text(item)

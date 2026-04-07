@@ -122,3 +122,4 @@ def _event(container: Dataset) -> Event:
             case c if c == KVP:
                 e.kvp = e.kvp or _num(item)
             case c if c == DAP:
+                e.dap = _num(item)

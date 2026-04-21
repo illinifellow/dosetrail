@@ -153,3 +153,5 @@ def parse(ds: Dataset) -> DoseReport:
         elif code == PROTOCOL and report.protocol is None:
             report.protocol = _text(item)
     if report.total_dlp is None and report.modality == "CT":
+        report.total_dlp = sum(e.dlp or 0 for e in report.events) or None
+    return report

@@ -1,2 +1,6 @@
 name: CI
 on: [push, pull_request]
+jobs:
+  python:
+    runs-on: ubuntu-latest
+    defaults: { run: { working-directory: server } }

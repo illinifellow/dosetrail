@@ -101,3 +101,57 @@ def _text(item: Dataset) -> str | None:
     if "UID" in item:
         return str(item.UID)
     return None
+
+
+def _event(container: Dataset) -> Event:
+    e = Event(uid="", kind="unknown")
+    for item in _walk(container.get("ContentSequence")):
+        match _code(item):
+            case c if c == EVENT_UID:
+                e.uid = _text(item) or ""
+            case c if c == ACQUISITION_TYPE:
+                e.kind = (_text(item) or "unknown").lower()
+            case c if c == TARGET_REGION:
+                e.anatomy = _text(item)
+            case c if c == MEAN_CTDIVOL:
+                e.ctdi_vol = _num(item)
+            case c if c == DLP:
+                e.dlp = _num(item)
+            case c if c == SCAN_LENGTH:
+                e.scan_length_mm = _num(item)
+            case c if c == KVP:
+                e.kvp = e.kvp or _num(item)
+            case c if c == DAP:
+                e.dap = _num(item)
+    return e
+
+
+def parse(ds: Dataset) -> DoseReport:
+    birth = str(ds.get("PatientBirthDate", "") or "")
+    when = str(ds.get("StudyDate", "")) + str(ds.get("StudyTime", "000000")).split(".")[0].ljust(6, "0")
+    report = DoseReport(
+        study_uid=str(ds.StudyInstanceUID),
+        patient_id=str(ds.get("PatientID", "")),
+        issuer=str(ds.get("IssuerOfPatientID", "")),
+        sex=str(ds.get("PatientSex", "")) or None,
+        birth_year=int(birth[:4]) if birth[:4].isdigit() else None,
+        performed_at=datetime.strptime(when, "%Y%m%d%H%M%S"),
+        modality="CT" if any(_code(i) == CT_ACQUISITION for i in _walk(ds.ContentSequence)) else "XA",
+        device=" ".join(filter(None, [ds.get("Manufacturer"), ds.get("ManufacturerModelName"), ds.get("StationName")])),
+        protocol=None,
+    )
+    for item in _walk(ds.ContentSequence):
+        code = _code(item)
+        if code in (CT_ACQUISITION, IRRADIATION_EVENT):
+            report.events.append(_event(item))
+        elif code == DLP_TOTAL:
+            report.total_dlp = _num(item)
+        elif code == DAP_TOTAL:
+            report.total_dap = _num(item)
+        elif code == FLUORO_TIME_TOTAL:
+            report.fluoro_seconds = _num(item)
+        elif code == PROTOCOL and report.protocol is None:
+            report.protocol = _text(item)
+    if report.total_dlp is None and report.modality == "CT":
+        report.total_dlp = sum(e.dlp or 0 for e in report.events) or None
+    return report

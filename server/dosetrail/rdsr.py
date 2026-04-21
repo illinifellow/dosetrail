@@ -152,3 +152,4 @@ def parse(ds: Dataset) -> DoseReport:
             report.fluoro_seconds = _num(item)
         elif code == PROTOCOL and report.protocol is None:
             report.protocol = _text(item)
+    if report.total_dlp is None and report.modality == "CT":

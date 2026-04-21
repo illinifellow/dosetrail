@@ -11,3 +11,6 @@ labels: bug
 
 
 **How to reproduce**
+
+
+Scanner vendor and model, and a de-identified RDSR if you can share one.

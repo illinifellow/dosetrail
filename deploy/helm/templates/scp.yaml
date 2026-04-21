@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: { name: {{ .Release.Name }}-scp }
+spec:
+  replicas: 1
+  selector: { matchLabels: { app: {{ .Release.Name }}-scp } }
+  template:
+    metadata: { labels: { app: {{ .Release.Name }}-scp } }
+    spec:
+      containers:
+        - name: scp
+          image: {{ .Values.image }}
+          args: ["dosetrail-scp", "--aet", {{ .Values.aeTitle | quote }}]
+          ports: [{ containerPort: 11112 }]
+          env:
+            - name: DATABASE_URL
+              valueFrom: { secretKeyRef: { name: {{ .Values.databaseUrlSecret }}, key: url } }
+            - name: DOSETRAIL_PSEUDONYM_KEY
+              valueFrom: { secretKeyRef: { name: {{ .Values.pseudonymKeySecret }}, key: key } }
+            - { name: DOSETRAIL_WEBHOOK, value: {{ .Values.webhook | quote }} }
+---
+apiVersion: v1
+kind: Service
+metadata: { name: {{ .Release.Name }}-dicom }
+spec:
+  type: {{ .Values.dicom.serviceType }}
+  loadBalancerSourceRanges: {{- toYaml .Values.dicom.loadBalancerSourceRanges | nindent 4 }}
+  selector: { app: {{ .Release.Name }}-scp }
+  ports: [{ port: {{ .Values.dicom.port }}, targetPort: 11112, name: dicom }]

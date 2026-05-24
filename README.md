@@ -17,3 +17,5 @@ Alerts can be posted to a webhook (Teams, Slack, a ticketing system) as they hap
 ## What it shows
 
 - DLP distribution per CT protocol as box plots, with the DRL drawn across. Protocols whose median sits near the line are the first place to optimise.
+- The same protocol on different scanners, side by side.
+- A pseudonymous patient's history with the running five-year effective dose.

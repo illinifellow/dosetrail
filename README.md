@@ -28,3 +28,7 @@ docker compose up -d
 #   AE title DOSETRAIL, host <this machine>, port 11112, send SR dose reports only
 cd web && npm install && npm run dev
 ```
+
+Test with dcmtk: `storescu localhost 11112 -aec DOSETRAIL rdsr.dcm`.
+
+## Privacy

@@ -51,3 +51,6 @@ server/sql/                schema
 web/                       React, Mantine, ECharts
 deploy/helm/               chart for a hospital Kubernetes
 ```
+
+
+## Credits

@@ -34,3 +34,5 @@ Test with dcmtk: `storescu localhost 11112 -aec DOSETRAIL rdsr.dcm`.
 ## Privacy
 
 Patient ids are replaced by an HMAC of issuer and id with a key only the server holds (`DOSETRAIL_PSEUDONYM_KEY`). Names and birth dates are not stored; the birth year and sex are, because dose risk depends on them.
+
+## How it reads a report

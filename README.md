@@ -43,3 +43,11 @@ An RDSR is a tree of SR content items (TID 10011 for CT, TID 10001 for projectio
 
 ```
 server/dosetrail/scp.py    DICOM Storage SCP (pynetdicom)
+server/dosetrail/rdsr.py   RDSR parsing
+server/dosetrail/drl.py    reference levels and checks
+server/dosetrail/store.py  one transaction per report
+server/dosetrail/api.py    FastAPI for the dashboard
+server/sql/                schema
+web/                       React, Mantine, ECharts
+deploy/helm/               chart for a hospital Kubernetes
+```

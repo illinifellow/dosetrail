@@ -27,3 +27,4 @@ docker compose up -d
 # on the scanner or the PACS: add a DICOM destination
 #   AE title DOSETRAIL, host <this machine>, port 11112, send SR dose reports only
 cd web && npm install && npm run dev
+```

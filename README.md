@@ -36,3 +36,5 @@ Test with dcmtk: `storescu localhost 11112 -aec DOSETRAIL rdsr.dcm`.
 Patient ids are replaced by an HMAC of issuer and id with a key only the server holds (`DOSETRAIL_PSEUDONYM_KEY`). Names and birth dates are not stored; the birth year and sex are, because dose risk depends on them.
 
 ## How it reads a report
+
+An RDSR is a tree of SR content items (TID 10011 for CT, TID 10001 for projection X-ray). Vendors nest and order it differently, so `rdsr.py` walks the whole tree and reads concepts by their DCM codes — Mean CTDIvol 113830, DLP 113838, DAP 122130 and so on — never by position. Effective dose for CT is estimated from DLP per event with the ICRP 102 conversion factors for the scanned region; where the region is not recognised, dosetrail stores no effective dose rather than a guessed one.

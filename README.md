@@ -7,3 +7,9 @@ CT scanners, angiography suites and DR rooms already write a **Radiation Dose St
 ![the dose atlas](docs/atlas.png)
 
 ## What it flags
+
+- **Above a diagnostic reference level** — CTDIvol or DLP for CT, DAP for fluoroscopy, against the levels in `drl.yaml`. A DRL is not a limit; the alert asks for a reason, which is recorded when the alert is closed.
+- **Cumulative dose** — 100 mSv effective dose within five years for one patient.
+- **Repeat scans** — the same protocol on the same patient within 24 hours.
+
+Alerts can be posted to a webhook (Teams, Slack, a ticketing system) as they happen.

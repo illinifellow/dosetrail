@@ -5,3 +5,5 @@ DoseTrail reads DICOM Radiation Dose Structured Reports.
 The standard fixes the concepts.
 
 Vendors still differ in shape.
+
+The parser reads by concept code.

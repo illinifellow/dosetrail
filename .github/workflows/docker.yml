@@ -1,1 +1,5 @@
 name: images
+on:
+  # manual only: nothing is published or deployed automatically
+  workflow_dispatch:
+permissions:

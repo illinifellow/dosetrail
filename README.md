@@ -54,3 +54,5 @@ deploy/helm/               chart for a hospital Kubernetes
 
 
 ## Credits
+
+- [pynetdicom](https://github.com/pydicom/pynetdicom) and [pydicom](https://github.com/pydicom/pydicom) — the whole DICOM side stands on them.

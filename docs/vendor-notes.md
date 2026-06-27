@@ -27,3 +27,7 @@ Scan length is often present.
 Series descriptions can be more useful than protocol names.
 
 Siemens reports may include localizer events.
+
+Localizers stay as events.
+
+Localizers should not drive protocol DRL matching.

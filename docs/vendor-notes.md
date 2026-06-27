@@ -77,3 +77,7 @@ Only events with dose values count.
 Philips can report DLP as decimal strings.
 
 Numeric parsing must accept strings.
+
+Philips device names may include software version.
+
+Charts should group by scanner identity.

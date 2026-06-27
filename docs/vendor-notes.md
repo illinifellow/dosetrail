@@ -45,3 +45,5 @@ GE may omit target region.
 When target region is missing, protocol text is the fallback.
 
 GE protocol names can include scanner abbreviations.
+
+The DRL matcher must normalise those names.

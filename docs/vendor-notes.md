@@ -19,3 +19,9 @@ CTDIvol and DLP sit inside the acquisition event.
 Target region is often present.
 
 Protocol name is usually near the top.
+
+Total DLP is often present.
+
+Scan length is often present.
+
+Series descriptions can be more useful than protocol names.

@@ -37,3 +37,5 @@ Device identity comes from manufacturer, model and station.
 GE CT reports are often flatter.
 
 GE can repeat concept names in different containers.
+
+The parser keeps the nearest event container.

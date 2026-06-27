@@ -53,3 +53,5 @@ GE sometimes reports total DLP only.
 If events lack DLP, event-level alerting skips them.
 
 Study-level totals are still stored.
+
+GE can put acquisition type in a coded item.

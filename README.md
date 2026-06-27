@@ -57,3 +57,7 @@ deploy/helm/               chart for a hospital Kubernetes
 
 - [pynetdicom](https://github.com/pydicom/pynetdicom) and [pydicom](https://github.com/pydicom/pydicom) — the whole DICOM side stands on them.
 - David Clunie's notes and dicom3tools, the best map of how vendors actually build RDSR trees.
+- DLP-to-effective-dose factors from ICRP Publication 102 and the tables by Shrimpton et al.
+- The repeat-scan alert exists because a physicist asked for it in #22.
+
+## License

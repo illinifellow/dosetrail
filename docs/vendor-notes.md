@@ -9,3 +9,7 @@ Vendors still differ in shape.
 The parser reads by concept code.
 
 The parser does not depend on item order.
+
+The parser keeps working when optional sections are missing.
+
+Siemens CT reports usually keep the CT acquisition container clear.

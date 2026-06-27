@@ -73,3 +73,7 @@ Phantom type is not patient dose.
 Philips can include planned but unexposed series.
 
 Only events with dose values count.
+
+Philips can report DLP as decimal strings.
+
+Numeric parsing must accept strings.

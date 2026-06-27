@@ -59,3 +59,5 @@ GE can put acquisition type in a coded item.
 The parser reads CodeMeaning and TextValue.
 
 Philips CT reports often carry rich protocol text.
+
+Philips may group events under irradiation event containers.

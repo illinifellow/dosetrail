@@ -41,3 +41,5 @@ GE can repeat concept names in different containers.
 The parser keeps the nearest event container.
 
 GE may omit target region.
+
+When target region is missing, protocol text is the fallback.

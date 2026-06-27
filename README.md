@@ -61,3 +61,5 @@ deploy/helm/               chart for a hospital Kubernetes
 - The repeat-scan alert exists because a physicist asked for it in #12.
 
 ## License
+
+Apache-2.0. Not a medical device; it helps a physicist decide where to look.

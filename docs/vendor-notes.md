@@ -31,3 +31,9 @@ Siemens reports may include localizer events.
 Localizers stay as events.
 
 Localizers should not drive protocol DRL matching.
+
+Device identity comes from manufacturer, model and station.
+
+GE CT reports are often flatter.
+
+GE can repeat concept names in different containers.

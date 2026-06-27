@@ -67,3 +67,7 @@ The parser descends recursively.
 Philips reports may include phantom type.
 
 Phantom type is useful for QA.
+
+Phantom type is not patient dose.
+
+Philips can include planned but unexposed series.

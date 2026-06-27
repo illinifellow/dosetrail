@@ -51,3 +51,5 @@ The DRL matcher must normalise those names.
 GE sometimes reports total DLP only.
 
 If events lack DLP, event-level alerting skips them.
+
+Study-level totals are still stored.

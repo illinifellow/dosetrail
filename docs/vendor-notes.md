@@ -71,3 +71,5 @@ Phantom type is useful for QA.
 Phantom type is not patient dose.
 
 Philips can include planned but unexposed series.
+
+Only events with dose values count.

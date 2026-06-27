@@ -15,3 +15,7 @@ The parser keeps working when optional sections are missing.
 Siemens CT reports usually keep the CT acquisition container clear.
 
 CTDIvol and DLP sit inside the acquisition event.
+
+Target region is often present.
+
+Protocol name is usually near the top.

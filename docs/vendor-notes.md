@@ -13,3 +13,5 @@ The parser does not depend on item order.
 The parser keeps working when optional sections are missing.
 
 Siemens CT reports usually keep the CT acquisition container clear.
+
+CTDIvol and DLP sit inside the acquisition event.

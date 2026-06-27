@@ -65,3 +65,5 @@ Philips may group events under irradiation event containers.
 The parser descends recursively.
 
 Philips reports may include phantom type.
+
+Phantom type is useful for QA.

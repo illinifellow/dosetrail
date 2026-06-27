@@ -25,3 +25,5 @@ Total DLP is often present.
 Scan length is often present.
 
 Series descriptions can be more useful than protocol names.
+
+Siemens reports may include localizer events.

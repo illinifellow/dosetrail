@@ -81,3 +81,5 @@ Numeric parsing must accept strings.
 Philips device names may include software version.
 
 Charts should group by scanner identity.
+
+Canon CT reports can be sparse.

@@ -93,3 +93,5 @@ Scan length is optional.
 Canon may report total DLP with no per-event DLP.
 
 The store allows study totals without event totals.
+
+Canon target region text may differ from the DRL vocabulary.

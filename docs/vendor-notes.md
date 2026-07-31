@@ -85,3 +85,5 @@ Charts should group by scanner identity.
 Canon CT reports can be sparse.
 
 Canon may put protocol names in study description.
+
+Canon events can have acquisition UID but no scan length.

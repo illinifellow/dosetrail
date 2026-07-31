@@ -89,3 +89,7 @@ Canon may put protocol names in study description.
 Canon events can have acquisition UID but no scan length.
 
 Scan length is optional.
+
+Canon may report total DLP with no per-event DLP.
+
+The store allows study totals without event totals.

@@ -135,3 +135,5 @@ Units must be checked at the measured value.
 Do not assume every NUM in an event is mGy.
 
 Do not assume every total belongs to CT.
+
+Reject reports without ContentSequence.

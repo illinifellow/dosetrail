@@ -29,3 +29,5 @@ def save(conn: Connection, report: DoseReport, levels: list[Level]) -> list[tupl
         conn.execute(
             """INSERT INTO studies (study_uid, patient_id, performed_at, modality, device, protocol,
                                     total_dlp, total_dap, fluoro_seconds, effective_msv)
+               VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+               ON CONFLICT (study_uid) DO UPDATE SET total_dlp = EXCLUDED.total_dlp, total_dap = EXCLUDED.total_dap,

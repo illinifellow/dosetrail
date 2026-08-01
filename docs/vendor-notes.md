@@ -133,3 +133,5 @@ When event UID is absent, event order is a weak fallback.
 Units must be checked at the measured value.
 
 Do not assume every NUM in an event is mGy.
+
+Do not assume every total belongs to CT.

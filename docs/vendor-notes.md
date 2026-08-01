@@ -111,3 +111,7 @@ Mammography reports are projection X-ray reports.
 Mammography uses average glandular dose.
 
 Average glandular dose is per view.
+
+Compressed breast thickness is per view.
+
+Totals are per breast.

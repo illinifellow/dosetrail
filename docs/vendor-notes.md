@@ -95,3 +95,7 @@ Canon may report total DLP with no per-event DLP.
 The store allows study totals without event totals.
 
 Canon target region text may differ from the DRL vocabulary.
+
+The normaliser maps common region variants.
+
+Projection X-ray reports use a separate path.

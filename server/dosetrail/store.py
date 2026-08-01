@@ -27,3 +27,5 @@ def save(conn: Connection, report: DoseReport, levels: list[Level]) -> list[tupl
             (patient_key(report.issuer, report.patient_id), report.sex, report.birth_year),
         ).fetchone()[0]
         conn.execute(
+            """INSERT INTO studies (study_uid, patient_id, performed_at, modality, device, protocol,
+                                    total_dlp, total_dap, fluoro_seconds, effective_msv)

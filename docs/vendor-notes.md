@@ -99,3 +99,7 @@ Canon target region text may differ from the DRL vocabulary.
 The normaliser maps common region variants.
 
 Projection X-ray reports use a separate path.
+
+Fluoro and XA use DAP more than DLP.
+
+Effective dose from DAP depends on geometry.

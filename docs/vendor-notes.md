@@ -105,3 +105,7 @@ Fluoro and XA use DAP more than DLP.
 Effective dose from DAP depends on geometry.
 
 DoseTrail stores DAP and avoids a fake effective dose.
+
+Mammography reports are projection X-ray reports.
+
+Mammography uses average glandular dose.

@@ -33,3 +33,6 @@ def save(conn: Connection, report: DoseReport, levels: list[Level]) -> list[tupl
                ON CONFLICT (study_uid) DO UPDATE SET total_dlp = EXCLUDED.total_dlp, total_dap = EXCLUDED.total_dap,
                  fluoro_seconds = EXCLUDED.fluoro_seconds, effective_msv = EXCLUDED.effective_msv""",
             (report.study_uid, patient, report.performed_at, report.modality, report.device, report.protocol,
+             report.total_dlp, report.total_dap, report.fluoro_seconds, report.effective_msv),
+        )
+        for e in report.events:

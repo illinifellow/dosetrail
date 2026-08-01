@@ -115,3 +115,5 @@ Average glandular dose is per view.
 Compressed breast thickness is per view.
 
 Totals are per breast.
+
+Per-breast totals must not mix with CT DLP.

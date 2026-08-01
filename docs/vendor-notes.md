@@ -117,3 +117,7 @@ Compressed breast thickness is per view.
 Totals are per breast.
 
 Per-breast totals must not mix with CT DLP.
+
+All vendors can omit patient issuer.
+
+Patient pseudonymisation must handle an empty issuer.

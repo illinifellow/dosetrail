@@ -139,3 +139,5 @@ Do not assume every total belongs to CT.
 Reject reports without ContentSequence.
 
 Store raw manufacturer and model strings.
+
+Normalise for grouping later.

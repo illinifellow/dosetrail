@@ -121,3 +121,7 @@ Per-breast totals must not mix with CT DLP.
 All vendors can omit patient issuer.
 
 Patient pseudonymisation must handle an empty issuer.
+
+All vendors can send repeated studies.
+
+Study UID is the idempotency key.

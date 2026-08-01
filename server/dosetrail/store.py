@@ -25,3 +25,5 @@ def save(conn: Connection, report: DoseReport, levels: list[Level]) -> list[tupl
             """INSERT INTO patients (key, sex, birth_year) VALUES (%s, %s, %s)
                ON CONFLICT (key) DO UPDATE SET sex = EXCLUDED.sex RETURNING id""",
             (patient_key(report.issuer, report.patient_id), report.sex, report.birth_year),
+        ).fetchone()[0]
+        conn.execute(

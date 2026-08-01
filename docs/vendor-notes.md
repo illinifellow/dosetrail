@@ -125,3 +125,5 @@ Patient pseudonymisation must handle an empty issuer.
 All vendors can send repeated studies.
 
 Study UID is the idempotency key.
+
+Events use event UID when present.

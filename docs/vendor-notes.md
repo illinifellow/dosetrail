@@ -103,3 +103,5 @@ Projection X-ray reports use a separate path.
 Fluoro and XA use DAP more than DLP.
 
 Effective dose from DAP depends on geometry.
+
+DoseTrail stores DAP and avoids a fake effective dose.

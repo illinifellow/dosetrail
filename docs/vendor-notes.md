@@ -141,3 +141,7 @@ Reject reports without ContentSequence.
 Store raw manufacturer and model strings.
 
 Normalise for grouping later.
+
+Keep parser errors specific.
+
+The operator needs to know which concept was missing.

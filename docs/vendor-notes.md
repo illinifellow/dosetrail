@@ -109,3 +109,5 @@ DoseTrail stores DAP and avoids a fake effective dose.
 Mammography reports are projection X-ray reports.
 
 Mammography uses average glandular dose.
+
+Average glandular dose is per view.

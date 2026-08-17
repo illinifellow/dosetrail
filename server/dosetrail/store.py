@@ -36,3 +36,5 @@ def save(conn: Connection, report: DoseReport, levels: list[Level]) -> list[tupl
              report.total_dlp, report.total_dap, report.fluoro_seconds, report.effective_msv),
         )
         for e in report.events:
+            conn.execute(
+                """INSERT INTO events (study_uid, event_uid, kind, anatomy, ctdi_vol, dlp, scan_length_mm, dap, kvp)

@@ -29,3 +29,5 @@ class MammoDoseReport:
             totals[view.breast] = round(totals.get(view.breast, 0.0) + view.average_glandular_dose_mgy, 3)
         return totals
 
+
+def _code(item: Dataset) -> tuple[str, str, str] | None:

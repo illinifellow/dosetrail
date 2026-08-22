@@ -13,3 +13,4 @@ def code(value, meaning, scheme="DCM"):
 def coded(concept, value, meaning=None):
     item = Dataset()
     item.ValueType = "CODE"
+    item.ConceptNameCodeSequence = code(*concept)

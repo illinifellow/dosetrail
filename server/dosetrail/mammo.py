@@ -11,3 +11,4 @@ class MammoView:
     uid: str
     breast: str
     view: str
+    average_glandular_dose_mgy: float | None = None

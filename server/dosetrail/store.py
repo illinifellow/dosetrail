@@ -48,3 +48,10 @@ def save(conn: Connection, report: DoseReport, levels: list[Level]) -> list[tupl
         ).fetchone()[0]
         repeat = conn.execute(
             """SELECT exists(SELECT 1 FROM studies WHERE patient_id = %s AND protocol = %s AND study_uid <> %s
+                             AND abs(extract(epoch FROM performed_at - %s)) < 86400)""",
+            (patient, report.protocol, report.study_uid, report.performed_at),
+        ).fetchone()[0]
+        alerts = check(report, levels, cumulative, repeat and report.protocol is not None)
+        for kind, detail in alerts:
+            conn.execute("INSERT INTO alerts (study_uid, kind, detail) VALUES (%s, %s, %s)", (report.study_uid, kind, detail))
+    return alerts

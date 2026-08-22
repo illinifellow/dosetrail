@@ -13,3 +13,4 @@ class MammoView:
     view: str
     average_glandular_dose_mgy: float | None = None
     compressed_breast_thickness_mm: float | None = None
+

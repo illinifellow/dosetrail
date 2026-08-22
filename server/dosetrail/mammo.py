@@ -22,3 +22,7 @@ class MammoDoseReport:
 
     @property
     def totals_by_breast(self) -> dict[str, float]:
+        totals: dict[str, float] = {}
+        for view in self.views:
+            if view.average_glandular_dose_mgy is None:
+                continue

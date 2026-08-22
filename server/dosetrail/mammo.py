@@ -17,3 +17,7 @@ class MammoView:
 
 @dataclass
 class MammoDoseReport:
+    study_uid: str
+    views: list[MammoView] = field(default_factory=list)
+
+    @property

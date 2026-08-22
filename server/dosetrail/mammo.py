@@ -21,3 +21,4 @@ class MammoDoseReport:
     views: list[MammoView] = field(default_factory=list)
 
     @property
+    def totals_by_breast(self) -> dict[str, float]:

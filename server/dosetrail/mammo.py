@@ -28,3 +28,4 @@ class MammoDoseReport:
                 continue
             totals[view.breast] = round(totals.get(view.breast, 0.0) + view.average_glandular_dose_mgy, 3)
         return totals
+

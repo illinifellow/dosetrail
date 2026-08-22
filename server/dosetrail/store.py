@@ -24,3 +24,34 @@ def save(conn: Connection, report: DoseReport, levels: list[Level]) -> list[tupl
         patient = conn.execute(
             """INSERT INTO patients (key, sex, birth_year) VALUES (%s, %s, %s)
                ON CONFLICT (key) DO UPDATE SET sex = EXCLUDED.sex RETURNING id""",
+            (patient_key(report.issuer, report.patient_id), report.sex, report.birth_year),
+        ).fetchone()[0]
+        conn.execute(
+            """INSERT INTO studies (study_uid, patient_id, performed_at, modality, device, protocol,
+                                    total_dlp, total_dap, fluoro_seconds, effective_msv)
+               VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+               ON CONFLICT (study_uid) DO UPDATE SET total_dlp = EXCLUDED.total_dlp, total_dap = EXCLUDED.total_dap,
+                 fluoro_seconds = EXCLUDED.fluoro_seconds, effective_msv = EXCLUDED.effective_msv""",
+            (report.study_uid, patient, report.performed_at, report.modality, report.device, report.protocol,
+             report.total_dlp, report.total_dap, report.fluoro_seconds, report.effective_msv),
+        )
+        for e in report.events:
+            conn.execute(
+                """INSERT INTO events (study_uid, event_uid, kind, anatomy, ctdi_vol, dlp, scan_length_mm, dap, kvp)
+                   VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s) ON CONFLICT DO NOTHING""",
+                (report.study_uid, e.uid, e.kind, e.anatomy, e.ctdi_vol, e.dlp, e.scan_length_mm, e.dap, e.kvp),
+            )
+        cumulative = conn.execute(
+            """SELECT coalesce(sum(effective_msv), 0) FROM studies
+               WHERE patient_id = %s AND performed_at > %s - interval '5 years'""",
+            (patient, report.performed_at),
+        ).fetchone()[0]
+        repeat = conn.execute(
+            """SELECT exists(SELECT 1 FROM studies WHERE patient_id = %s AND protocol = %s AND study_uid <> %s
+                             AND abs(extract(epoch FROM performed_at - %s)) < 86400)""",
+            (patient, report.protocol, report.study_uid, report.performed_at),
+        ).fetchone()[0]
+        alerts = check(report, levels, cumulative, repeat and report.protocol is not None)
+        for kind, detail in alerts:
+            conn.execute("INSERT INTO alerts (study_uid, kind, detail) VALUES (%s, %s, %s)", (report.study_uid, kind, detail))
+    return alerts

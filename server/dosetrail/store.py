@@ -47,3 +47,4 @@ def save(conn: Connection, report: DoseReport, levels: list[Level]) -> list[tupl
             (patient, report.performed_at),
         ).fetchone()[0]
         repeat = conn.execute(
+            """SELECT exists(SELECT 1 FROM studies WHERE patient_id = %s AND protocol = %s AND study_uid <> %s

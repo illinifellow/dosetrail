@@ -45,3 +45,5 @@ def save(conn: Connection, report: DoseReport, levels: list[Level]) -> list[tupl
             """SELECT coalesce(sum(effective_msv), 0) FROM studies
                WHERE patient_id = %s AND performed_at > %s - interval '5 years'""",
             (patient, report.performed_at),
+        ).fetchone()[0]
+        repeat = conn.execute(

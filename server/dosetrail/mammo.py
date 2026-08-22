@@ -26,3 +26,5 @@ class MammoDoseReport:
         for view in self.views:
             if view.average_glandular_dose_mgy is None:
                 continue
+            totals[view.breast] = round(totals.get(view.breast, 0.0) + view.average_glandular_dose_mgy, 3)
+        return totals

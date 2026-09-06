@@ -27,3 +27,10 @@ def num(concept, value):
     item.MeasuredValueSequence = Sequence([mv])
     return item
 
+
+def event(uid, breast, view, dose, thickness):
+    ev = Dataset()
+    ev.ConceptNameCodeSequence = code("113706", "Irradiation Event X-Ray Data")
+    u = Dataset()
+    u.ConceptNameCodeSequence = code("113769", "Irradiation Event UID")
+    u.UID = uid

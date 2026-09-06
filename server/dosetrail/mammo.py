@@ -37,3 +37,13 @@ def _code(item: Dataset) -> tuple[str, str, str] | None:
     code = seq[0]
     return str(code.CodingSchemeDesignator), str(code.CodeValue), str(code.CodeMeaning).lower()
 
+
+def _walk(items) -> Iterator[Dataset]:
+    for item in items or []:
+        yield item
+        yield from _walk(item.get("ContentSequence"))
+
+
+def _num(item: Dataset) -> float | None:
+    mv = item.get("MeasuredValueSequence")
+    return float(mv[0].NumericValue) if mv else None

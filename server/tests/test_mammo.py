@@ -57,3 +57,6 @@ def test_reads_mammo_view_dose_and_thickness():
     assert r.views[0].view == "CC"
     assert r.views[0].average_glandular_dose_mgy == 1.42
     assert r.views[0].compressed_breast_thickness_mm == 54
+
+
+def test_sums_per_breast():

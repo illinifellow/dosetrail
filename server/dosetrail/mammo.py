@@ -57,3 +57,8 @@ def _text(item: Dataset) -> str | None:
     if "UID" in item:
         return str(item.UID)
     return None
+
+
+def _matches(item: Dataset, *needles: str) -> bool:
+    code = _code(item)
+    if not code:

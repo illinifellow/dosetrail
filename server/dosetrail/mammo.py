@@ -65,3 +65,7 @@ def _matches(item: Dataset, *needles: str) -> bool:
         return False
     haystack = " ".join(code).lower()
     return any(needle in haystack for needle in needles)
+
+
+def _breast(text: str | None) -> str:
+    value = (text or "unknown").lower()

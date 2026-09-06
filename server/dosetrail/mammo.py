@@ -89,3 +89,6 @@ def _event(container: Dataset) -> MammoView:
     view = MammoView(uid="", breast="unknown", view="unknown")
     for item in _walk(container.get("ContentSequence")):
         if _matches(item, "irradiation event uid"):
+            view.uid = _text(item) or ""
+        elif _matches(item, "laterality", "breast laterality"):
+            view.breast = _breast(_text(item))

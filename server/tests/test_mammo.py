@@ -43,3 +43,5 @@ def event(uid, breast, view, dose, thickness):
     ])
     return ev
 
+
+def report(*events):

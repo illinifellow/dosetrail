@@ -92,3 +92,4 @@ def _event(container: Dataset) -> MammoView:
             view.uid = _text(item) or ""
         elif _matches(item, "laterality", "breast laterality"):
             view.breast = _breast(_text(item))
+        elif _matches(item, "view position", "projection"):

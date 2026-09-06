@@ -84,3 +84,8 @@ def _view(text: str | None) -> str:
         return "CC"
     return text or "unknown"
 
+
+def _event(container: Dataset) -> MammoView:
+    view = MammoView(uid="", breast="unknown", view="unknown")
+    for item in _walk(container.get("ContentSequence")):
+        if _matches(item, "irradiation event uid"):

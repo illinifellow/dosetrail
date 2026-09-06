@@ -50,3 +50,7 @@ def report(*events):
     ds.ContentSequence = Sequence(list(events))
     return ds
 
+
+def test_reads_mammo_view_dose_and_thickness():
+    r = parse(report(event("e1", "Left", "CC", 1.42, 54)))
+    assert r.views[0].breast == "left"

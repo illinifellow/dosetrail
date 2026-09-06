@@ -49,3 +49,4 @@ def report(*events):
     ds.StudyInstanceUID = "1.2.3"
     ds.ContentSequence = Sequence(list(events))
     return ds
+

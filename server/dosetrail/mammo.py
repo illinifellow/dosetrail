@@ -34,3 +34,4 @@ def _code(item: Dataset) -> tuple[str, str, str] | None:
     seq = item.get("ConceptNameCodeSequence")
     if not seq:
         return None
+    code = seq[0]

@@ -45,3 +45,7 @@ def event(uid, breast, view, dose, thickness):
 
 
 def report(*events):
+    ds = Dataset()
+    ds.StudyInstanceUID = "1.2.3"
+    ds.ContentSequence = Sequence(list(events))
+    return ds

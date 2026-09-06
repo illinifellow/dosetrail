@@ -47,3 +47,4 @@ def _walk(items) -> Iterator[Dataset]:
 def _num(item: Dataset) -> float | None:
     mv = item.get("MeasuredValueSequence")
     return float(mv[0].NumericValue) if mv else None
+

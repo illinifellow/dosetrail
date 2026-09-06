@@ -39,3 +39,7 @@ def event(uid, breast, view, dose, thickness):
         coded(("111027", "Breast Laterality"), breast),
         coded(("111031", "View Position"), view),
         num(("111637", "Average Glandular Dose"), dose),
+        num(("111633", "Compressed Breast Thickness"), thickness),
+    ])
+    return ev
+

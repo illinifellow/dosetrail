@@ -17,3 +17,10 @@ def coded(concept, value, meaning=None):
     item.ConceptCodeSequence = code(value, meaning or value, "SRT")
     return item
 
+
+def num(concept, value):
+    item = Dataset()
+    item.ValueType = "NUM"
+    item.ConceptNameCodeSequence = code(*concept)
+    mv = Dataset()
+    mv.NumericValue = str(value)

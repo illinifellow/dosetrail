@@ -34,3 +34,4 @@ def event(uid, breast, view, dose, thickness):
     u = Dataset()
     u.ConceptNameCodeSequence = code("113769", "Irradiation Event UID")
     u.UID = uid
+    ev.ContentSequence = Sequence([

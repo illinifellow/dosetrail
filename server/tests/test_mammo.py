@@ -35,3 +35,7 @@ def event(uid, breast, view, dose, thickness):
     u.ConceptNameCodeSequence = code("113769", "Irradiation Event UID")
     u.UID = uid
     ev.ContentSequence = Sequence([
+        u,
+        coded(("111027", "Breast Laterality"), breast),
+        coded(("111031", "View Position"), view),
+        num(("111637", "Average Glandular Dose"), dose),

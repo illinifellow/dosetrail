@@ -61,3 +61,4 @@ def test_reads_mammo_view_dose_and_thickness():
 
 def test_sums_per_breast():
     r = parse(report(event("l-cc", "Left", "CC", 1.4, 54), event("l-mlo", "Left", "MLO", 1.7, 61), event("r-cc", "Right", "CC", 1.2, 49)))
+    assert r.totals_by_breast == {"left": 3.1, "right": 1.2}

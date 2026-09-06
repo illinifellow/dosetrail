@@ -81,3 +81,5 @@ def _view(text: str | None) -> str:
     if "MLO" in value:
         return "MLO"
     if "CC" in value:
+        return "CC"
+    return text or "unknown"

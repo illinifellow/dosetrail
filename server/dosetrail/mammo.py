@@ -35,3 +35,5 @@ def _code(item: Dataset) -> tuple[str, str, str] | None:
     if not seq:
         return None
     code = seq[0]
+    return str(code.CodingSchemeDesignator), str(code.CodeValue), str(code.CodeMeaning).lower()
+

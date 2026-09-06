@@ -94,3 +94,4 @@ def _event(container: Dataset) -> MammoView:
             view.breast = _breast(_text(item))
         elif _matches(item, "view position", "projection"):
             view.view = _view(_text(item))
+        elif _matches(item, "average glandular dose", "mean glandular dose"):

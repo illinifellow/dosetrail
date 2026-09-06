@@ -62,3 +62,6 @@ def _text(item: Dataset) -> str | None:
 def _matches(item: Dataset, *needles: str) -> bool:
     code = _code(item)
     if not code:
+        return False
+    haystack = " ".join(code).lower()
+    return any(needle in haystack for needle in needles)

@@ -69,3 +69,15 @@ def _matches(item: Dataset, *needles: str) -> bool:
 
 def _breast(text: str | None) -> str:
     value = (text or "unknown").lower()
+    if "left" in value or value == "l":
+        return "left"
+    if "right" in value or value == "r":
+        return "right"
+    return "unknown"
+
+
+def _view(text: str | None) -> str:
+    value = (text or "unknown").upper().replace(" ", "")
+    if "MLO" in value:
+        return "MLO"
+    if "CC" in value:

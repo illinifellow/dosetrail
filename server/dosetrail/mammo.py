@@ -107,3 +107,4 @@ def parse(ds: Dataset) -> MammoDoseReport:
         if _matches(item, "irradiation event x-ray data", "projection x-ray radiation dose"):
             event = _event(item)
             if event.average_glandular_dose_mgy is not None or event.compressed_breast_thickness_mm is not None:
+                report.views.append(event)

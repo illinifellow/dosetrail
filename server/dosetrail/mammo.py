@@ -109,3 +109,4 @@ def parse(ds: Dataset) -> MammoDoseReport:
             if event.average_glandular_dose_mgy is not None or event.compressed_breast_thickness_mm is not None:
                 report.views.append(event)
     # TODO: some vendors put breast/view only on acquisition context siblings; add sibling lookup.
+    return report

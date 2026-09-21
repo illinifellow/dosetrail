@@ -98,3 +98,11 @@ def _event(container: Dataset) -> MammoView:
             view.average_glandular_dose_mgy = _num(item)
         elif _matches(item, "compressed breast thickness", "compression thickness"):
             view.compressed_breast_thickness_mm = _num(item)
+    return view
+
+
+def parse(ds: Dataset) -> MammoDoseReport:
+    report = MammoDoseReport(study_uid=str(ds.StudyInstanceUID))
+    for item in _walk(ds.ContentSequence):
+        if _matches(item, "irradiation event x-ray data", "projection x-ray radiation dose"):
+            event = _event(item)

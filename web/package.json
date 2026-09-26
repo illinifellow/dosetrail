@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": { "dev": "vite", "build": "tsc -b && vite build" },
   "dependencies": {
-    "@mantine/core": "^7.15.0",
+    "@mantine/core": "^9.6.2",
     "@mantine/hooks": "^7.15.0",
     "echarts": "^5.5.1",
     "echarts-for-react": "^3.0.2",
